@@ -248,7 +248,7 @@ SELECT [imageID], [productID], [imageUrl] FROM productsImages
 GO
 print '' print '*** creating sp_verify_user'
 GO
-CREATE PROCEDURE [dbo].[sp_sp_verify_user]
+CREATE PROCEDURE [dbo].[sp_verify_user]
 (
 	@Email		[nvarchar](250),
 	@PasswordHash	[nvarchar](100)
