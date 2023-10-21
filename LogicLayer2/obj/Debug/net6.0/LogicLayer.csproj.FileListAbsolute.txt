@@ -1,0 +1,17 @@
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\LogicLayer.deps.json
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\LogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\LogicLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.AssemblyInfoInputs.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.AssemblyInfo.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.csproj.CoreCompileInputs.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\refint\LogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\ref\LogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\DataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\DataAccessLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.csproj.AssemblyReference.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.csproj.CopyComplete
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\ILogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\LogicLayer2\bin\Debug\net6.0\ILogicLayer.pdb
