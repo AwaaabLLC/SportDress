@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj": {}
+    "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj": {}
   },
   "projects": {
-    "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj": {
+    "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj",
+        "projectUniqueName": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj",
         "projectName": "IDataAccessLayer",
-        "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj",
+        "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\Samar\\.nuget\\packages\\",
-        "outputPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\IDataAccessLayer\\obj\\",
+        "outputPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\IDataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Samar\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -66,11 +66,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\PresentationLayer2\\PresentationLayer.csproj",
+      "projectUniqueName": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\PresentationLayer2\\PresentationLayer.csproj",
       "projectName": "PresentationLayer",
-      "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\PresentationLayer2\\PresentationLayer.csproj",
+      "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\PresentationLayer2\\PresentationLayer.csproj",
       "packagesPath": "C:\\Users\\Samar\\.nuget\\packages\\",
-      "outputPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\PresentationLayer2\\obj\\",
+      "outputPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\PresentationLayer2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Samar\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -87,8 +87,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\LogicLayer2\\LogicLayer.csproj": {
-              "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\LogicLayer2\\LogicLayer.csproj"
+            "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\LogicLayer2\\LogicLayer.csproj": {
+              "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\LogicLayer2\\LogicLayer.csproj"
             }
           }
         }

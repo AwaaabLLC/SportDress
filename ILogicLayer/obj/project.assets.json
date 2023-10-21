@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\ILogicLayer\\ILogicLayer.csproj",
+      "projectUniqueName": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\ILogicLayer\\ILogicLayer.csproj",
       "projectName": "ILogicLayer",
-      "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\ILogicLayer\\ILogicLayer.csproj",
+      "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\ILogicLayer\\ILogicLayer.csproj",
       "packagesPath": "C:\\Users\\Samar\\.nuget\\packages\\",
-      "outputPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\ILogicLayer\\obj\\",
+      "outputPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\ILogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Samar\\AppData\\Roaming\\NuGet\\NuGet.Config",

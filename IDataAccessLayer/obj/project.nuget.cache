@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ukscYEAQ0WOwOyep44W4xyhZBIoRNwhSNj79lx2yb6L2uIE8hQ+t+L4v04xII+NgkgvAW+lt/rlEZz+bLfcUg==",
+  "dgSpecHash": "CB2bH32Ky8oCUPqIL3lbPKa4eIfj5Rs/DtPfg9+aLCoTmu1yTP/YwLTlkrjiL9+ZZxcO3Hqh5ZExuaBKOjN4QQ==",
   "success": true,
-  "projectFilePath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\SportDressApp\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj",
+  "projectFilePath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\IDataAccessLayer\\IDataAccessLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
