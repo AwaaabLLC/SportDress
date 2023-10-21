@@ -9,3 +9,15 @@ D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\ILogicLayer\obj\
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\ILogicLayer\obj\Debug\net6.0\refint\ILogicLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\ILogicLayer\obj\Debug\net6.0\ref\ILogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\bin\Debug\net6.0\ILogicLayer.deps.json
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\bin\Debug\net6.0\ILogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\bin\Debug\net6.0\ILogicLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.AssemblyInfoInputs.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.AssemblyInfo.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.csproj.CoreCompileInputs.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.sourcelink.json
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\refint\ILogicLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ILogicLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\ILogicLayer\obj\Debug\net6.0\ref\ILogicLayer.dll

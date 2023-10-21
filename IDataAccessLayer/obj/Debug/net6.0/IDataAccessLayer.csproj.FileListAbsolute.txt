@@ -9,3 +9,16 @@ D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\IDataAccessLayer
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\IDataAccessLayer\obj\Debug\net6.0\refint\IDataAccessLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\SportDressApp\SportDress\IDataAccessLayer\obj\Debug\net6.0\ref\IDataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\bin\Debug\net6.0\IDataAccessLayer.deps.json
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\bin\Debug\net6.0\IDataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\bin\Debug\net6.0\IDataAccessLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.csproj.AssemblyReference.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.AssemblyInfoInputs.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.AssemblyInfo.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.sourcelink.json
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\refint\IDataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\ref\IDataAccessLayer.dll
