@@ -36,9 +36,9 @@ GO
 INSERT INTO [dbo].[Employees]
 	([GivenName], [FamilyName],[PhoneNumber],[Email],[PasswordHash],[Active])
 	VALUES
-	('first', 'employee', '3190000001','firstEmployee@company.com','9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',1),
-	('second','employee','3190000002','secondEmployee@company.com', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',1),
-		('third','employee','3190000003','third@company.com', '9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08',0)
+	('first', 'employee', '3190000001','firstEmployee@company.com','5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',1),
+	('second','employee','3190000002','secondEmployee@company.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',1),
+		('third','employee','3190000003','third@company.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',0)
 GO
 SELECT [EmployeeID],[GivenName], [FamilyName] FROM [dbo].[employees]
 GO

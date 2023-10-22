@@ -8,7 +8,7 @@ using IDataAccessLayer;
 
 namespace DataAccessLayer
 {
-    internal class DBConnection : IDBConnection
+    internal class DBConnection 
     {
 
         internal static SqlConnection getConnection()

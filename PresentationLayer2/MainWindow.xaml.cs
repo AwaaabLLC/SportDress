@@ -39,7 +39,7 @@ namespace PresentationLayer
                 lblLoginMessages.Content = "username and password are not correct";
                 return;
             }
-            lblLoginMessages.Content = "";
+            lblLoginMessages.Content = "this user is verified";
 
         }
 
