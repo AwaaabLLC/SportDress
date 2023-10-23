@@ -25,22 +25,62 @@ namespace PresentationLayer
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            string username = txt_username.Text;
-            string password = txt_password.Password.ToString();
-            bool isUserNameValid = validateUserName(username);
-            bool isPasswordValid = validatePassword(password);
-            if(!(isUserNameValid && isPasswordValid))
+            if (btnLogin.Content.ToString() == "login")
             {
-                return;
+                lblLoginMessages.Content = "";
+                string username = txt_username.Text;
+                string password = txt_password.Password.ToString();
+                bool isUserNameValid = validateUserName(username);
+                bool isPasswordValid = validatePassword(password);
+                if (!(isUserNameValid && isPasswordValid))
+                {
+                    return;
+                }
+                int isEmployeeVerify = employeesManager.verifyEmployee(username, password);
+                if (isEmployeeVerify < 1)
+                {
+                    lblLoginMessages.Content = "username and password are not correct";
+                    return;
+                }
+                
+                clearLoginText();
+                hidLoginElements();
+                List<string> employeeRoles = employeesManager.getEmployeeRoles(isEmployeeVerify);
+                foreach (string item in employeeRoles)
+                {
+                    lblLoginMessages.Content += item;
+                }
+                
             }
-            bool isEmployeeVerify = employeesManager.verifyEmployee(username, password);
-            if (!isEmployeeVerify)
+            else
             {
-                lblLoginMessages.Content = "username and password are not correct";
-                return;
+                showLoginElements();
             }
-            lblLoginMessages.Content = "this user is verified";
+           
+        }
 
+        private void clearLoginText()
+        {
+            txt_username.Text = string.Empty;
+            txt_password.Password = string.Empty;
+        }
+
+        private void showLoginElements()
+        {
+            lbl_username.Visibility = Visibility.Visible;
+            lbl_password.Visibility = Visibility.Visible;
+            txt_username.Visibility = Visibility.Visible;   
+            txt_password.Visibility = Visibility.Visible;
+            btnLogin.Content = "login";
+        }
+
+        private void hidLoginElements()
+        {
+            lbl_username.Visibility = Visibility.Collapsed;
+            lbl_password.Visibility = Visibility.Collapsed;
+            txt_password.Visibility = Visibility.Collapsed; 
+            txt_username.Visibility = Visibility.Collapsed;
+            btnLogin.Content = "logout";
         }
 
         private bool validatePassword(string password)

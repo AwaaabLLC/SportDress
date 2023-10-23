@@ -255,9 +255,24 @@ CREATE PROCEDURE [dbo].[sp_verify_user]
 )
 AS
 	BEGIN
-		SELECT Email,PasswordHash
+		SELECT [EmployeeID],[Email],[PasswordHash]
 		FROM [dbo].[Employees]
 		WHERE Email = @Email
 		AND PasswordHash = @PasswordHash
+	END
+GO
+print '' print '*** creating sp_select_roles_by_employee_id'
+GO
+CREATE PROCEDURE [dbo].[sp_select_roles_by_employee_id]
+(
+	@employee_id		[int]
+)
+AS
+	BEGIN
+		SELECT [dbo].[Roles].[RoleID]
+		FROM [dbo].[Roles]
+		INNER JOIN [dbo].[EmployeesRoles] ON [dbo].[Roles].[RoleID] = [dbo].[EmployeesRoles].[RoleID]
+		INNER JOIN [dbo].[Employees] ON [dbo].[EmployeesRoles].[EmployeeID] = [dbo].[Employees].[EmployeeID]
+		WHERE [dbo].[Employees].[EmployeeID] = @employee_id;		
 	END
 GO

@@ -8,6 +8,7 @@ namespace ILogicLayer
 {
     public interface IEmployeesManager
     {
-        public bool verifyEmployee(string username, string password);
+        public int verifyEmployee(string username, string password);
+        public List<string> getEmployeeRoles(int isEmployeeVerify);
     }
 }

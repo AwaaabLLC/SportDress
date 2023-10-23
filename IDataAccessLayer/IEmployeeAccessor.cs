@@ -8,6 +8,7 @@ namespace IDataAccessLayer
 {
     public interface IEmployeeAccessor
     {
-        public bool verifyEmployee(string username, string password);
+        public int verifyEmployee(string username, string password);
+        public List<string> selectEmployeeRoles(int employeeId);
     }
 }

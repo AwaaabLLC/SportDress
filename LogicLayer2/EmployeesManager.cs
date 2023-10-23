@@ -13,9 +13,15 @@ namespace LogicLayer
             employeesAccessor = new EmployeesAccessor();
         }
 
-        public bool verifyEmployee(string username, string password)
+        public List<string> getEmployeeRoles(int EmployeeId)
         {
-            bool result = false;
+            List<string> employeeRoles = employeesAccessor.selectEmployeeRoles(EmployeeId);
+            return employeeRoles;
+        }
+
+        public int verifyEmployee(string username, string password)
+        {
+            int result = 0;
             result = employeesAccessor.verifyEmployee(username, hashSHA256(password));
             return result;
         }
