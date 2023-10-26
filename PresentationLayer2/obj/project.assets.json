@@ -161,6 +161,16 @@
           "bin/placeholder/DataAccessLayer.dll": {}
         }
       },
+      "DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataObjects.dll": {}
+        }
+      },
       "IDataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -519,6 +529,11 @@
       "path": "../DataAccessLayer/DataAccessLayer.csproj",
       "msbuildProject": "../DataAccessLayer/DataAccessLayer.csproj"
     },
+    "DataObjects/1.0.0": {
+      "type": "project",
+      "path": "../DataObjects/DataObjects.csproj",
+      "msbuildProject": "../DataObjects/DataObjects.csproj"
+    },
     "IDataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../IDataAccessLayer/IDataAccessLayer.csproj",
@@ -537,6 +552,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "DataObjects >= 1.0.0",
       "LogicLayer >= 1.0.0"
     ]
   },
@@ -567,6 +583,9 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
+            "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataObjects\\DataObjects.csproj": {
+              "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataObjects\\DataObjects.csproj"
+            },
             "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\LogicLayer2\\LogicLayer.csproj": {
               "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\LogicLayer2\\LogicLayer.csproj"
             }

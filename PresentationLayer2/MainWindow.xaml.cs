@@ -22,12 +22,13 @@ namespace PresentationLayer
         {
             InitializeComponent();
             employeesManager = new EmployeesManager();
+            gridBody.Visibility = Visibility.Collapsed;
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             if (btnLogin.Content.ToString() == "login")
             {
-                lblLoginMessages.Content = "";
+                lblLoginMessages.Content = "";                
                 string username = txt_username.Text;
                 string password = txt_password.Password.ToString();
                 bool isUserNameValid = validateUserName(username);
@@ -50,6 +51,7 @@ namespace PresentationLayer
                 {
                     lblLoginMessages.Content += item;
                 }
+                showTabByRole(employeeRoles[0]);
                 
             }
             else
@@ -57,6 +59,36 @@ namespace PresentationLayer
                 showLoginElements();
             }
            
+        }
+
+        
+
+        private void showTabByRole(string role)
+        {
+            lblLoginMessages.Content = role;
+            gridBody.Visibility = Visibility.Visible;
+            gridAdminMenu.Visibility = Visibility.Collapsed;    
+             if (role == "admin")
+            {
+                btnAdmin.Visibility = Visibility.Visible;
+                btnManager.Visibility = Visibility.Hidden;
+                btnReciption.Visibility = Visibility.Hidden;
+                gridAdminMenu.Visibility = Visibility.Visible;
+            }
+            else if(role == "manager")
+            {
+                btnAdmin.Visibility = Visibility.Hidden;
+                btnManager.Visibility = Visibility.Visible;
+                btnReciption.Visibility = Visibility.Hidden;
+                gridAdminMenu.Visibility = Visibility.Hidden;
+            }
+            else if (role == "employee")
+            {
+                btnAdmin.Visibility = Visibility.Hidden;
+                btnManager.Visibility = Visibility.Hidden;
+                btnReciption.Visibility = Visibility.Visible;
+                gridAdminMenu.Visibility = Visibility.Hidden;
+            }
         }
 
         private void clearLoginText()
@@ -72,6 +104,8 @@ namespace PresentationLayer
             txt_username.Visibility = Visibility.Visible;   
             txt_password.Visibility = Visibility.Visible;
             btnLogin.Content = "login";
+            gridBody.Visibility = Visibility.Collapsed;
+            lblLoginMessages.Content = "";
         }
 
         private void hidLoginElements()
@@ -103,6 +137,12 @@ namespace PresentationLayer
                 result = false;
             }
             return result;
+        }
+
+        private void btnNewUserClicked(object sender, RoutedEventArgs e)
+        {
+            Admin.EmployeeDataForm employeeDataForm = new Admin.EmployeeDataForm();
+            employeeDataForm.Show();
         }
     }
 }

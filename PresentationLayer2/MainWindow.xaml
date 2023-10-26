@@ -65,7 +65,50 @@
             </Grid>
 
         </Grid>
-        <Grid Grid.Row="1">
+        <Grid Grid.Row="1" x:Name="gridBody">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0">
+                    <Button x:Name="btnAdmin">Admin</Button>
+                </Grid>
+                <Grid Grid.Column="1">
+                    <Button x:Name="btnManager">Manager</Button>
+                </Grid>
+                <Grid Grid.Column="2">
+                    <Button x:Name="btnReciption">Reciption</Button>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1" x:Name="gridAdminMenu">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button x:Name="btnNewUser" Click="btnNewUserClicked">New User</Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button x:Name="btnShowAll">ShowAll</Button>
+                    </Grid>
+                    <Grid Grid.Column="2"></Grid>
+                    <Grid Grid.Column="3"></Grid>
+                </Grid>
+                <Grid Grid.Row="1"></Grid>
+            </Grid>
         </Grid>
         <Grid Grid.Row="2"></Grid>
     </Grid>

@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "PresentationLayer/1.0.0": {
         "dependencies": {
+          "DataObjects": "1.0.0",
           "LogicLayer": "1.0.0"
         },
         "runtime": {
@@ -96,6 +97,11 @@
         },
         "runtime": {
           "DataAccessLayer.dll": {}
+        }
+      },
+      "DataObjects/1.0.0": {
+        "runtime": {
+          "DataObjects.dll": {}
         }
       },
       "IDataAccessLayer/1.0.0": {
@@ -192,6 +198,11 @@
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
     "DataAccessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataObjects/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
