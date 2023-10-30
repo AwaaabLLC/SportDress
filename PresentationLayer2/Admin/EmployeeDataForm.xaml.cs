@@ -33,5 +33,10 @@ namespace PresentationLayer.Admin
             this.employee = employee;
             lblTitleForm.Content = "Edit Employee";
         }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            lblFormMessage.Content = "أواب";
+        }
     }
 }
