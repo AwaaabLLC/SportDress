@@ -25,3 +25,5 @@ D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\DataAccessLayer\obj\Deb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\DataAccessLayer\obj\Debug\net6.0\refint\DataAccessLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\DataAccessLayer\obj\Debug\net6.0\DataAccessLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\DataAccessLayer\obj\Debug\net6.0\ref\DataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\DataAccessLayer\bin\Debug\net6.0\DataObjects.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\DataAccessLayer\bin\Debug\net6.0\DataObjects.pdb

@@ -1,12 +1,14 @@
 ﻿using DataAccessLayer;
+using DataObjects;
 using ILogicLayer;
 using System.Security.Cryptography;
 using System.Text;
+using IDataAccessLayer;
 namespace LogicLayer
 {
-    public class EmployeesManager : ILogicLayer.IEmployeesManager
+    public class EmployeesManager : IEmployeesManager
     {
-        private EmployeesAccessor employeesAccessor;
+        private IEmployeesAccessor employeesAccessor;
 
         public EmployeesManager()
         {
@@ -17,6 +19,24 @@ namespace LogicLayer
         {
             List<string> employeeRoles = employeesAccessor.selectEmployeeRoles(EmployeeId);
             return employeeRoles;
+        }
+
+        public List<Employee> getEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+            employees = employeesAccessor.selectEmployees();
+            foreach (Employee employee in employees)
+            {
+                employee.Password = null;
+            }
+            return employees;
+        }
+
+        public bool setEmployee(Employee employee)
+        {
+            employee.Password = hashSHA256(employee.Password);
+            bool result = employeesAccessor.insertEmployee(employee);
+            return result;
         }
 
         public int verifyEmployee(string username, string password)

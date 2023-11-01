@@ -9,6 +9,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using LogicLayer;
+using ILogicLayer;
+using DataObjects;
 
 namespace PresentationLayer
 {
@@ -17,7 +19,7 @@ namespace PresentationLayer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private EmployeesManager employeesManager;
+        private IEmployeesManager employeesManager;
         public MainWindow()
         {
             InitializeComponent();
@@ -142,6 +144,20 @@ namespace PresentationLayer
         private void btnNewUserClicked(object sender, RoutedEventArgs e)
         {
             Admin.EmployeeDataForm employeeDataForm = new Admin.EmployeeDataForm();
+            employeeDataForm.Show();
+        }
+
+        private void btnShowAll_Click(object sender, RoutedEventArgs e)
+        {
+            List<Employee> employees = new List<Employee>();
+            employees = employeesManager.getEmployees();
+            dgEmployees.ItemsSource = employees;
+        }
+
+        private void dgEmployees_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Employee employee = (Employee)dgEmployees.SelectedItem;
+            Admin.EmployeeDataForm employeeDataForm = new Admin.EmployeeDataForm(employee);
             employeeDataForm.Show();
         }
     }

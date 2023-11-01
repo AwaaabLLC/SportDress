@@ -151,6 +151,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "DataObjects": "1.0.0",
           "IDataAccessLayer": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -161,10 +162,21 @@
           "bin/placeholder/DataAccessLayer.dll": {}
         }
       },
+      "DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataObjects.dll": {}
+        }
+      },
       "IDataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "DataObjects": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
@@ -177,6 +189,9 @@
       "ILogicLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataObjects": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/ILogicLayer.dll": {}
         },
@@ -505,6 +520,11 @@
       "path": "../DataAccessLayer/DataAccessLayer.csproj",
       "msbuildProject": "../DataAccessLayer/DataAccessLayer.csproj"
     },
+    "DataObjects/1.0.0": {
+      "type": "project",
+      "path": "../DataObjects/DataObjects.csproj",
+      "msbuildProject": "../DataObjects/DataObjects.csproj"
+    },
     "IDataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../IDataAccessLayer/IDataAccessLayer.csproj",
@@ -519,6 +539,7 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "DataAccessLayer >= 1.0.0",
+      "DataObjects >= 1.0.0",
       "ILogicLayer >= 1.0.0"
     ]
   },
@@ -551,6 +572,9 @@
           "projectReferences": {
             "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataAccessLayer\\DataAccessLayer.csproj": {
               "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataAccessLayer\\DataAccessLayer.csproj"
+            },
+            "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataObjects\\DataObjects.csproj": {
+              "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataObjects\\DataObjects.csproj"
             },
             "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\ILogicLayer\\ILogicLayer.csproj": {
               "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\ILogicLayer\\ILogicLayer.csproj"

@@ -276,3 +276,27 @@ AS
 		WHERE [dbo].[Employees].[EmployeeID] = @employee_id;		
 	END
 GO
+GO
+print '' print '*** creating sp_insert_employee'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_employee]
+(
+	@GivenName [nvarchar](50), @FamilyName [nvarchar](50), @PhoneNumber [nvarchar](11), @Email [nvarchar](250), @PasswordHash [nvarchar](100),@Active [bit]
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[Employees]
+		(GivenName,FamilyName,PhoneNumber,Email,PasswordHash,Active)	
+		VALUES(@GivenName,@FamilyName,@PhoneNumber,@Email,@PasswordHash,@Active)
+	Return @@ROWCOUNT
+	END
+GO
+print '' print '*** creating sp_select_employees'
+GO
+CREATE PROCEDURE [dbo].[sp_select_employee]
+AS
+	BEGIN
+		SELECT EmployeeID,GivenName, FamilyName,PhoneNumber,Email,PasswordHash,Active
+		FROM [dbo].[Employees]
+	END
+GO

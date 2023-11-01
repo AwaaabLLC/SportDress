@@ -151,6 +151,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "DataObjects": "1.0.0",
           "IDataAccessLayer": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -175,6 +176,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "DataObjects": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "compile": {
@@ -187,6 +189,9 @@
       "ILogicLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataObjects": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/ILogicLayer.dll": {}
         },
@@ -199,6 +204,7 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "DataAccessLayer": "1.0.0",
+          "DataObjects": "1.0.0",
           "ILogicLayer": "1.0.0"
         },
         "compile": {

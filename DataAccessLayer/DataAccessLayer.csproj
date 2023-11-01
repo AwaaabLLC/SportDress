@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DataObjects\DataObjects.csproj" />
     <ProjectReference Include="..\IDataAccessLayer\IDataAccessLayer.csproj" />
   </ItemGroup>
 

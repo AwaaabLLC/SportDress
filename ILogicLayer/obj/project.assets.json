@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "DataObjects/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DataObjects.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DataObjects.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DataObjects/1.0.0": {
+      "type": "project",
+      "path": "../DataObjects/DataObjects.csproj",
+      "msbuildProject": "../DataObjects/DataObjects.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "DataObjects >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Samar\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataObjects\\DataObjects.csproj": {
+              "projectPath": "D:\\Awaab\\Kirkwood\\Tutor\\Dotnet2\\Gadora\\github\\SportDress\\DataObjects\\DataObjects.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

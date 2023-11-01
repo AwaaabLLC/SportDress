@@ -92,6 +92,7 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "DataAccessLayer/1.0.0": {
         "dependencies": {
+          "DataObjects": "1.0.0",
           "IDataAccessLayer": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -106,6 +107,7 @@
       },
       "IDataAccessLayer/1.0.0": {
         "dependencies": {
+          "DataObjects": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -113,6 +115,9 @@
         }
       },
       "ILogicLayer/1.0.0": {
+        "dependencies": {
+          "DataObjects": "1.0.0"
+        },
         "runtime": {
           "ILogicLayer.dll": {}
         }
@@ -120,6 +125,7 @@
       "LogicLayer/1.0.0": {
         "dependencies": {
           "DataAccessLayer": "1.0.0",
+          "DataObjects": "1.0.0",
           "ILogicLayer": "1.0.0"
         },
         "runtime": {

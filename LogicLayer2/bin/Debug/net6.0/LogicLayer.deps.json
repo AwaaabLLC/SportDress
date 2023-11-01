@@ -9,6 +9,7 @@
       "LogicLayer/1.0.0": {
         "dependencies": {
           "DataAccessLayer": "1.0.0",
+          "DataObjects": "1.0.0",
           "ILogicLayer": "1.0.0"
         },
         "runtime": {
@@ -92,6 +93,7 @@
       "System.Security.Principal.Windows/4.7.0": {},
       "DataAccessLayer/1.0.0": {
         "dependencies": {
+          "DataObjects": "1.0.0",
           "IDataAccessLayer": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
@@ -99,8 +101,14 @@
           "DataAccessLayer.dll": {}
         }
       },
+      "DataObjects/1.0.0": {
+        "runtime": {
+          "DataObjects.dll": {}
+        }
+      },
       "IDataAccessLayer/1.0.0": {
         "dependencies": {
+          "DataObjects": "1.0.0",
           "System.Data.SqlClient": "4.8.5"
         },
         "runtime": {
@@ -108,6 +116,9 @@
         }
       },
       "ILogicLayer/1.0.0": {
+        "dependencies": {
+          "DataObjects": "1.0.0"
+        },
         "runtime": {
           "ILogicLayer.dll": {}
         }
@@ -184,6 +195,11 @@
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
     "DataAccessLayer/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataObjects/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

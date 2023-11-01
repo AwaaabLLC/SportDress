@@ -19,9 +19,11 @@ D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\n
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\LogicLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\LogicLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\DataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\DataObjects.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\IDataAccessLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\ILogicLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\DataAccessLayer.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\DataObjects.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\ILogicLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\bin\Debug\net6.0\IDataAccessLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\LogicLayer2\obj\Debug\net6.0\LogicLayer.csproj.AssemblyReference.cache

@@ -1,10 +1,39 @@
 ﻿using IDataAccessLayer;
 using System.Data;
 using System.Data.SqlClient;
+using DataObjects;
 namespace DataAccessLayer
 {
-    public class EmployeesAccessor : IEmployeeAccessor
+    public class EmployeesAccessor : IEmployeesAccessor
     {
+        public bool insertEmployee(Employee employee)
+        {
+            bool result = false;
+
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_employee", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@GivenName", employee.GivenName);
+            cmd.Parameters.AddWithValue("@FamilyName", employee.FamilyName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", employee.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Email", employee.Email);
+            cmd.Parameters.AddWithValue("@PasswordHash", employee.Password);
+            cmd.Parameters.AddWithValue("@Active", 1);
+            try
+            {
+                conn.Open();
+                int reader = 0;
+                reader = cmd.ExecuteNonQuery();
+                if (reader != 0) { result = true; }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public List<string> selectEmployeeRoles(int employeeId)
         {
             List<string> employeeRoles = new List<string>();
@@ -21,7 +50,7 @@ namespace DataAccessLayer
                     while (reader.Read())
                     {
                         employeeRoles.Add(reader.GetString(0));
-                    }                     
+                    }
                 }
             }
             catch (Exception)
@@ -33,11 +62,45 @@ namespace DataAccessLayer
             return employeeRoles;
         }
 
+        public List<Employee> selectEmployees()
+        {
+            List<Employee> employees = new List<Employee>();
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_select_employee", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Employee employee = new Employee();
+                        employee.EmployeeID = reader.GetInt32(0);
+                        employee.GivenName = reader.GetString(1);
+                        employee.FamilyName = reader.GetString(2);
+                        employee.PhoneNumber = reader.GetString(3);
+                        employee.Email = reader.GetString(4);
+                        employee.Password = reader.GetString(5);
+                        employee.Active = reader.GetBoolean(6);
+                        employees.Add(employee);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return employees;
+        }
+
         public int verifyEmployee(string username, string password)
         {
             int result = 0;
             SqlConnection conn = DBConnection.getConnection();
-            var cmd = new SqlCommand("sp_verify_user",conn);
+            var cmd = new SqlCommand("sp_verify_user", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@Email", username);
             cmd.Parameters.AddWithValue("@PasswordHash", password);
@@ -45,7 +108,8 @@ namespace DataAccessLayer
             {
                 conn.Open();
                 var reader = cmd.ExecuteReader();
-                if (reader.HasRows) {
+                if (reader.HasRows)
+                {
                     reader.Read();
                     result = reader.GetInt32(0);
                 }

@@ -22,3 +22,6 @@ D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\De
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\refint\IDataAccessLayer.dll
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\ref\IDataAccessLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\bin\Debug\net6.0\DataObjects.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\bin\Debug\net6.0\DataObjects.pdb
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\IDataAccessLayer\obj\Debug\net6.0\IDataAccessLayer.csproj.CopyComplete
