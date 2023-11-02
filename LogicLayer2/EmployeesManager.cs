@@ -15,6 +15,22 @@ namespace LogicLayer
             employeesAccessor = new EmployeesAccessor();
         }
 
+        public int editEmployee(Employee? employee)
+        {
+            int result = 0;
+            try
+            {
+                employee.Password = hashSHA256(employee.Password);
+                result = employeesAccessor.updateEmployee(employee);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return result;
+        }
+
         public List<string> getEmployeeRoles(int EmployeeId)
         {
             List<string> employeeRoles = employeesAccessor.selectEmployeeRoles(EmployeeId);

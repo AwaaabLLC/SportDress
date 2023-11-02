@@ -300,3 +300,22 @@ AS
 		FROM [dbo].[Employees]
 	END
 GO
+print '' print '*** creating sp_update_employees'
+GO
+CREATE PROCEDURE [dbo].[sp_update_employee](
+@employeeId INT, @GivenName nvarchar(50), @FamilyName nvarchar(50), @PhoneNumber nvarchar(100), @Email nvarchar(250), @PasswordHash nvarchar(100),@Active bit
+)
+AS
+	BEGIN
+		UPDATE [dbo].[Employees]
+		SET GivenName = @GivenName,
+		    FamilyName = @FamilyName,
+		    PhoneNumber = @PhoneNumber,
+		    Email = @Email,
+		    PasswordHash = @PasswordHash,
+		    Active = @Active
+		WHERE
+		    employeeId = @employeeId
+		Return @@ROWCOUNT
+	END
+GO

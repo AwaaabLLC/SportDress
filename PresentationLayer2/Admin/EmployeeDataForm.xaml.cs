@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -57,24 +58,48 @@ namespace PresentationLayer.Admin
             validatePhoneNumber();
             validateEmail();
             validatePassword();
-            employee = new Employee();
-            employee.GivenName = txtGivenName.Text;
-            employee.FamilyName = txtFamilyName.Text;
-            employee.Email = txtEmail.Text;
-            employee.PhoneNumber = txtPhoneNumber.Text;
-            employee.Password = txtPassword.Text;
-            employee.Active = true;
-            bool result = employeesManager.setEmployee(employee);
-            if (result)
+            if (lblTitleForm.Content == "Edit Employee")
             {
-                lblFormMessage.Content = "تم إدخال بيانات الموظف بنجاح يا قدورة :)هههه";
-                txtGivenName.Text = "";
-                txtFamilyName.Text = "";
-                txtEmail.Text = "";
-                txtPhoneNumber.Text = "";
-                txtPassword.Text = "";
-                txtActive.Text = "";
-            };
+                
+                employee.GivenName = txtGivenName.Text;
+                employee.FamilyName = txtFamilyName.Text;
+                employee.Email = txtEmail.Text;
+                employee.PhoneNumber = txtPhoneNumber.Text;
+                employee.Password = txtPassword.Text;
+                employee.Active = true;
+                int result = employeesManager.editEmployee(employee);
+                if (result != 0)
+                {
+                    lblFormMessage.Content = "Employee Record Updated Correctly";                }
+                else
+                {
+                    lblFormMessage.Content = "لسه شغالين هنا";
+                }
+                
+            }
+            else
+            {
+               
+                employee = new Employee();
+                employee.GivenName = txtGivenName.Text;
+                employee.FamilyName = txtFamilyName.Text;
+                employee.Email = txtEmail.Text;
+                employee.PhoneNumber = txtPhoneNumber.Text;
+                employee.Password = txtPassword.Text;
+                employee.Active = true;
+                bool result = employeesManager.setEmployee(employee);
+                if (result)
+                {
+                    lblFormMessage.Content = "تم إدخال بيانات الموظف بنجاح يا قدورة :)هههه";
+                    txtGivenName.Text = "";
+                    txtFamilyName.Text = "";
+                    txtEmail.Text = "";
+                    txtPhoneNumber.Text = "";
+                    txtPassword.Text = "";
+                    txtActive.Text = "";
+                };
+            }
+            
         }
 
         private void validatePassword()

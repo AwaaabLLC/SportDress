@@ -13,5 +13,6 @@ namespace ILogicLayer
         public List<string> getEmployeeRoles(int isEmployeeVerify);
         public bool setEmployee(Employee employee);
         public List<Employee> getEmployees();
+        int editEmployee(Employee? employee);
     }
 }
