@@ -14,5 +14,6 @@ namespace ILogicLayer
         public bool setEmployee(Employee employee);
         public List<Employee> getEmployees();
         int editEmployee(Employee? employee);
+        int deleteEmployee(Employee employee);
     }
 }

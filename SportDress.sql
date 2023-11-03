@@ -319,3 +319,16 @@ AS
 		Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_delete_employee'
+GO
+CREATE PROCEDURE [dbo].[sp_delete_employee](
+@employeeId INT
+)
+AS
+	BEGIN
+		DELETE [dbo].[Employees]
+		WHERE
+		    employeeId = @employeeId
+		Return @@ROWCOUNT
+	END
+GO

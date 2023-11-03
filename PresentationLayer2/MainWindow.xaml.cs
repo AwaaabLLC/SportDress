@@ -160,5 +160,23 @@ namespace PresentationLayer
             Admin.EmployeeDataForm employeeDataForm = new Admin.EmployeeDataForm(employee);
             employeeDataForm.Show();
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgEmployees.SelectedItem == null)
+            {
+                lblDeleteSpan.Content = "Please select a row";
+                return;
+            }
+            Employee employee = (Employee)dgEmployees.SelectedItem;
+            int result = employeesManager.deleteEmployee(employee);
+            if (result != 0)
+            {
+                List<Employee> employees = new List<Employee>();
+                employees = employeesManager.getEmployees();
+                dgEmployees.ItemsSource = employees;
+            }
+
+        }
     }
 }

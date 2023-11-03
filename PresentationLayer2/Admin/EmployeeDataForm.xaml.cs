@@ -53,11 +53,11 @@ namespace PresentationLayer.Admin
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            validateGivenName();
-            validateFamilyName();
-            validatePhoneNumber();
-            validateEmail();
-            validatePassword();
+            if (!validateGivenName()) return;
+            if (!validateFamilyName()) return;
+            if (!validatePhoneNumber()) return;
+            if (!validateEmail()) return;
+            if (!validatePassword()) return;
             if (lblTitleForm.Content == "Edit Employee")
             {
                 
@@ -70,10 +70,12 @@ namespace PresentationLayer.Admin
                 int result = employeesManager.editEmployee(employee);
                 if (result != 0)
                 {
-                    lblFormMessage.Content = "Employee Record Updated Correctly";                }
+                    lblFormMessage.Content = "Employee Record Updated Correctly"; 
+                    
+                }
                 else
                 {
-                    lblFormMessage.Content = "لسه شغالين هنا";
+                    lblFormMessage.Content = "Employee did not update";
                 }
                 
             }
@@ -102,54 +104,59 @@ namespace PresentationLayer.Admin
             
         }
 
-        private void validatePassword()
+        private bool validatePassword()
         {
             if (txtPassword.Text.Length == 0)
             {
                 lblErrorPassword.Content = "password require";
-                return;
+                return false;
             }
             lblErrorPassword.Content = "";
+            return true;
         }
 
-        private void validateEmail()
+        private bool validateEmail()
         {
             if (txtEmail.Text.Length == 0)
             {
                 lblErrorEmail.Content = "Email require";
-                return;
+                return false;
             }
             lblErrorEmail.Content = "";
+            return true;
         }
 
-        private void validatePhoneNumber()
+        private bool validatePhoneNumber()
         {
             if (txtPhoneNumber.Text.Length == 0)
             {
                 lblErrorPhoneNumber.Content = "Phone number require";
-                return;
+                return false;
             }
             lblErrorPhoneNumber.Content = "";
+            return true;
         }
 
-        private void validateFamilyName()
+        private bool validateFamilyName()
         {
             if (txtFamilyName.Text.Length == 0)
             {
                 lblErrorFamilyName.Content = "Family name require";
-                return;
+                return false;
             }
             lblErrorFamilyName.Content = "";
+            return true;
         }
 
-        private void validateGivenName()
+        private bool validateGivenName()
         {
             if (txtGivenName.Text.Length == 0)
             {
                 lblErrorGivenName.Content = "given name require";
-                return;
+                return false;
             }
             lblErrorGivenName.Content = "";
+            return true;
         }
     }
 }

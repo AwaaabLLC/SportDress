@@ -15,6 +15,21 @@ namespace LogicLayer
             employeesAccessor = new EmployeesAccessor();
         }
 
+        public int deleteEmployee(Employee employee)
+        {
+            int result = 0;
+            try
+            {
+                result = employeesAccessor.deleteEmployee(employee);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return result;
+        }
+
         public int editEmployee(Employee? employee)
         {
             int result = 0;

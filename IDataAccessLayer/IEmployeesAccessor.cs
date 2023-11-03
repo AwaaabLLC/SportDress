@@ -14,5 +14,6 @@ namespace IDataAccessLayer
         public bool insertEmployee(Employee employee);
         public List<Employee> selectEmployees();
         int updateEmployee(Employee? employee);
+        int deleteEmployee(Employee employee);
     }
 }

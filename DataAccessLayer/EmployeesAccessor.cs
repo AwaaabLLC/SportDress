@@ -6,6 +6,28 @@ namespace DataAccessLayer
 {
     public class EmployeesAccessor : IEmployeesAccessor
     {
+        public int deleteEmployee(Employee employee)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_delete_employee", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@EmployeeId", employee.EmployeeID);
+            try
+            {
+                conn.Open();
+                int reader = 0;
+                reader = cmd.ExecuteNonQuery();
+                result = reader;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public bool insertEmployee(Employee employee)
         {
             bool result = false;
