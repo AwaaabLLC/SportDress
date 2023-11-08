@@ -20,10 +20,12 @@ namespace PresentationLayer
     public partial class MainWindow : Window
     {
         private IEmployeesManager employeesManager;
+        private IManagerManager managerManager;
         public MainWindow()
         {
             InitializeComponent();
             employeesManager = new EmployeesManager();
+            managerManager = new ManagerManager();
             gridBody.Visibility = Visibility.Collapsed;
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -63,8 +65,6 @@ namespace PresentationLayer
            
         }
 
-        
-
         private void showTabByRole(string role)
         {
             lblLoginMessages.Content = role;
@@ -76,6 +76,8 @@ namespace PresentationLayer
                 btnManager.Visibility = Visibility.Hidden;
                 btnReciption.Visibility = Visibility.Hidden;
                 gridAdminMenu.Visibility = Visibility.Visible;
+                gridManagerMenu.Visibility = Visibility.Hidden;
+                gridEmployeeMenu.Visibility = Visibility.Hidden;
             }
             else if(role == "manager")
             {
@@ -83,6 +85,8 @@ namespace PresentationLayer
                 btnManager.Visibility = Visibility.Visible;
                 btnReciption.Visibility = Visibility.Hidden;
                 gridAdminMenu.Visibility = Visibility.Hidden;
+                gridManagerMenu.Visibility = Visibility.Visible;
+                gridEmployeeMenu.Visibility = Visibility.Hidden;
             }
             else if (role == "employee")
             {
@@ -90,6 +94,8 @@ namespace PresentationLayer
                 btnManager.Visibility = Visibility.Hidden;
                 btnReciption.Visibility = Visibility.Visible;
                 gridAdminMenu.Visibility = Visibility.Hidden;
+                gridManagerMenu.Visibility = Visibility.Hidden;
+                gridEmployeeMenu.Visibility = Visibility.Visible;
             }
         }
 
@@ -177,6 +183,35 @@ namespace PresentationLayer
                 dgEmployees.ItemsSource = employees;
             }
 
+        }
+
+        private void btnProductTypes_Click(object sender, RoutedEventArgs e)
+        {
+            List<ProductTypes> productTypes = new List<ProductTypes>();
+            productTypes = managerManager.getProductType();
+            dataGridProducts.ItemsSource = productTypes;
+
+        }
+
+        private void btnProductSizes_Click(object sender, RoutedEventArgs e)
+        {
+            List<ProductSizes> productSizes = new List<ProductSizes>();
+            productSizes = managerManager.getProductSize();
+            dataGridProducts.ItemsSource = productSizes;
+        }
+
+        private void btnProducts_Click(object sender, RoutedEventArgs e)
+        {
+            List<Products> products = new List<Products>();
+            products = managerManager.getProducts();
+            dataGridProducts.ItemsSource = products;
+        }
+
+        private void btnProductImages_Click(object sender, RoutedEventArgs e)
+        {
+            List<Images> productImages = new List<Images>();
+            productImages = managerManager.getProductImages();
+            dataGridProducts.ItemsSource = productImages;
         }
     }
 }

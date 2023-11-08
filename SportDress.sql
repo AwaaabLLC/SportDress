@@ -40,8 +40,7 @@ INSERT INTO [dbo].[Employees]
 	('second','employee','3190000002','secondEmployee@company.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',1),
 		('third','employee','3190000003','third@company.com', '5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8',0)
 GO
-SELECT [EmployeeID],[GivenName], [FamilyName] FROM [dbo].[employees]
-GO
+
 
 CREATE TABLE [dbo].[Roles]
 (
@@ -62,9 +61,7 @@ INSERT INTO [dbo].[Roles]
 	('manager','view and edit all views'),
 	('admin','creat and update permissions')
 GO
-SELECT [RoleID], [Description] FROM [dbo].[Roles]
 
-GO
 CREATE TABLE [dbo].[EmployeesRoles]
 (
 	[EmployeeID]	[int]	NOT NULL,
@@ -85,9 +82,7 @@ INSERT INTO [dbo].[EmployeesRoles]
 	(100001,'manager'),
 	(100002,'employee')
 GO
-SELECT [EmployeeID], [RoleID] FROM [dbo].[EmployeesRoles]
 
-GO
 CREATE TABLE [dbo].[Zipcodes]
 (
 	[zipcode]	[nvarchar](10)	NOT NULL,
@@ -105,10 +100,7 @@ INSERT INTO [dbo].[Zipcodes]
 	VALUES
 	('52404', 'cedar rapids','iowa')
 GO
-SELECT [zipcode], [city] FROM [dbo].[Zipcodes]
 
-
-GO
 CREATE TABLE [dbo].[Customers]
 (
 	[CustomerID]	[int]	IDENTITY(100000,1)	NOT NULL,
@@ -132,10 +124,7 @@ INSERT INTO [dbo].[Customers]
 	VALUES
 	('first', 'customer','3180000001','firstCustomer@email.com','line1','line2','52404')
 GO
-SELECT [CustomerID], [GivenName],[zipcode] FROM [dbo].[Customers]
 
-
-GO
 CREATE TABLE [dbo].[CustomersCreditCards]
 (
 	[CustomerID]	[int]	NOT NULL,
@@ -158,13 +147,11 @@ INSERT INTO [dbo].[CustomersCreditCards]
 	VALUES
 	(100000, '1234567891011','52404','980','10/10/2040','first customer')
 Go
-SELECT [CustomerID], [CreditCardNumber], [zipcode] FROM CustomersCreditCards
 
-GO
 CREATE TABLE [dbo].[productstypes]
 (
 	[productTypeName]	[nvarchar](50)	NOT NULL,
-	[discription]	[nvarchar](255)	NOT NULL,
+	[description]	[nvarchar](255)	NOT NULL,
 	CONSTRAINT [pk_productTypeName] PRIMARY KEY ([productTypeName])
 )
 Go
@@ -173,40 +160,38 @@ Go
 print '' print '*** inserting samples data in productstypes table ***'
 GO
 INSERT INTO [dbo].[productstypes]
-	([productTypeName], [discription])
+	([productTypeName], [description])
 	VALUES
 	('T-shirt', 'all t-shirts'),
 	('shoes','all foot covers')
-Go
-SELECT [productTypeName], [discription] FROM productstypes
+
 
 GO
 CREATE TABLE [dbo].[productsSizes]
 (
 	[productsSizeName]	[nvarchar](4)	NOT NULL,
-	[discription]	[nvarchar](255)	,
+	[description]	[nvarchar](255)	,
 	CONSTRAINT [pk_productsSizeName] PRIMARY KEY ([productsSizeName])
 )
 Go
 print '' print '*** inserting samples data in productsSizes table ***'
 GO
 INSERT INTO [dbo].[productsSizes]
-	([productsSizeName], [discription])
+	([productsSizeName], [description])
 	VALUES
 	('xs', ''),
 	('s',''),
 	('m',''),
 	('l',''),
-	('xl',''),
-	('xxl','')
-Go
-SELECT [productsSizeName], [discription] FROM productsSizes
+	('xl','')
+
 
 GO
 CREATE TABLE [dbo].[products]
 (
 	[productID]	[int]	IDENTITY(100000,1)	NOT NULL,
 	[productName]	[nvarchar](50)	NOT NULL,
+	[price] [nvarchar](50) NOT NULL,
 	[type]	[nvarchar](50)	NOT NULL,
 	[size]	[nvarchar](4)	NOT NULL,
 	CONSTRAINT [pk_productID] PRIMARY KEY ([productID]),
@@ -219,11 +204,10 @@ Go
 print '' print '*** inserting samples data in products table ***'
 GO
 INSERT INTO [dbo].[products]
-	([productName], [type],[size])
+	([productName], [type],[size],[price])
 	VALUES
-	('product1', 'T-shirt','l')
-Go
-SELECT [productName], [type], [size] FROM products
+	('product1', 'T-shirt','l','1000')
+
 
 GO
 CREATE TABLE [dbo].[productsImages]
@@ -243,8 +227,7 @@ INSERT INTO [dbo].[productsImages]
 	([productID], [imageUrl])
 	VALUES
 	('100000', 'http://images.image1')
-Go
-SELECT [imageID], [productID], [imageUrl] FROM productsImages
+
 GO
 print '' print '*** creating sp_verify_user'
 GO
@@ -296,8 +279,9 @@ GO
 CREATE PROCEDURE [dbo].[sp_select_employee]
 AS
 	BEGIN
-		SELECT EmployeeID,GivenName, FamilyName,PhoneNumber,Email,PasswordHash,Active
+		SELECT EmployeeID,GivenName, 				FamilyName,PhoneNumber,Email,PasswordHash,Active
 		FROM [dbo].[Employees]
+		WHERE Active = 1
 	END
 GO
 print '' print '*** creating sp_update_employees'
@@ -326,9 +310,46 @@ CREATE PROCEDURE [dbo].[sp_delete_employee](
 )
 AS
 	BEGIN
-		DELETE [dbo].[Employees]
+		UPDATE [dbo].[Employees]
+		SET Active = 1
 		WHERE
 		    employeeId = @employeeId
 		Return @@ROWCOUNT
+	END
+GO
+print '' print '*** creating sp_select_product_images'
+GO
+CREATE PROCEDURE [dbo].[sp_select_product_images]
+AS
+	BEGIN
+		SELECT  imageID, productID,imageUrl
+		FROM [dbo].[productsImages]
+	END
+GO
+print '' print '*** creating sp_select_products'
+GO
+CREATE PROCEDURE [dbo].[sp_select_products]
+AS
+	BEGIN
+		SELECT  [productID],[productName], [type],[size],[price]
+		FROM [dbo].[products]
+	END
+GO
+print '' print '*** creating sp_select_product_sizes'
+GO
+CREATE PROCEDURE [dbo].[sp_select_product_sizes]
+AS
+	BEGIN
+		SELECT  [productsSizeName], [description]
+		FROM [dbo].[productsSizes]
+	END
+GO
+print '' print '*** creating sp_select_product_types'
+GO
+CREATE PROCEDURE [dbo].[sp_select_product_types]
+AS
+	BEGIN
+		SELECT  [productTypeName], [description]
+		FROM [dbo].[productstypes]
 	END
 GO
