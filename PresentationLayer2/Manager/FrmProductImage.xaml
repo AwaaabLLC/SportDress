@@ -7,6 +7,83 @@
         mc:Ignorable="d"
         Title="FrmProductImage" Height="450" Width="800">
     <Grid>
-        <Label Content="Product Image"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" x:Name="rowHeader"/>
+            <RowDefinition x:Name="rowMain"/>
+            <RowDefinition x:Name="rowFooter" Height="120"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="colLeft" Width="200"/>
+                <ColumnDefinition x:Name="colMid"/>
+                <ColumnDefinition x:Name="colRight" Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"></Grid>
+            <Grid Grid.Column="1">
+                <Label Name="lblTitle" Content="Product Images" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="40"/>
+            </Grid>
+            <Grid Grid.Column="2"></Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"></Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblProductId" Content="ProductId"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Label x:Name="lblImageId" Content="ImageId"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Label x:Name="lblURL" Content="URL"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                </Grid>
+                <Grid Grid.Row="4">
+                </Grid>
+                <Grid Grid.Row="5">
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBox x:Name="txtProductId"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBox x:Name="txtImageId"/>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <TextBox x:Name="txtURL"/>
+                </Grid>
+                <Grid Grid.Row="3">
+                </Grid>
+                <Grid Grid.Row="4">
+                </Grid>
+                <Grid Grid.Row="5">
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="3"></Grid>
+        </Grid>
+        <Grid Grid.Row="2"></Grid>
     </Grid>
 </Window>
