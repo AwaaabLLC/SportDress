@@ -67,3 +67,11 @@ D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\PresentationLayer.pdb
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\PresentationLayer.genruntimeconfig.cache
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\ref\PresentationLayer.dll
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProductImage.g.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProducts.g.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProductSize.g.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProductTypes.g.cs
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProductImage.baml
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProducts.baml
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProductSize.baml
+D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\obj\Debug\net6.0-windows\Manager\FrmProductTypes.baml

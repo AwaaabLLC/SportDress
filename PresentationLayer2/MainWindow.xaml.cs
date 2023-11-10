@@ -21,6 +21,7 @@ namespace PresentationLayer
     {
         private IEmployeesManager employeesManager;
         private IManagerManager managerManager;
+        private string dataType = "";
         public MainWindow()
         {
             InitializeComponent();
@@ -190,7 +191,7 @@ namespace PresentationLayer
             List<ProductTypes> productTypes = new List<ProductTypes>();
             productTypes = managerManager.getProductType();
             dataGridProducts.ItemsSource = productTypes;
-
+            dataType = "productTypes";
         }
 
         private void btnProductSizes_Click(object sender, RoutedEventArgs e)
@@ -198,6 +199,7 @@ namespace PresentationLayer
             List<ProductSizes> productSizes = new List<ProductSizes>();
             productSizes = managerManager.getProductSize();
             dataGridProducts.ItemsSource = productSizes;
+            dataType = "productSizes";
         }
 
         private void btnProducts_Click(object sender, RoutedEventArgs e)
@@ -205,6 +207,7 @@ namespace PresentationLayer
             List<Products> products = new List<Products>();
             products = managerManager.getProducts();
             dataGridProducts.ItemsSource = products;
+            dataType = "products";
         }
 
         private void btnProductImages_Click(object sender, RoutedEventArgs e)
@@ -212,6 +215,43 @@ namespace PresentationLayer
             List<Images> productImages = new List<Images>();
             productImages = managerManager.getProductImages();
             dataGridProducts.ItemsSource = productImages;
+            dataType = "productImages";
+        }
+
+        private void dataGridProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dataType == "productImages")
+            {
+                Images images = new Images();
+                images = (Images)dataGridProducts.SelectedItem;
+                Manager.FrmProductImage frmProductImage = new Manager.FrmProductImage();
+                frmProductImage.ShowDialog();
+
+            }else if (dataType == "products")
+            {
+                Products products = new Products();
+                products = (Products)dataGridProducts.SelectedItem;
+                Manager.FrmProducts frmProducts = new Manager.FrmProducts();
+                frmProducts.ShowDialog();
+            }
+            else if(dataType == "productSizes")
+            {
+                ProductSizes productSize = new ProductSizes(); 
+                productSize = (ProductSizes)dataGridProducts.SelectedItem;
+                Manager.FrmProductSize frmProductSize = new Manager.FrmProductSize();
+                frmProductSize.ShowDialog();
+            }
+            else if (dataType == "productTypes")
+            {
+                ProductTypes productType = new ProductTypes();
+                productType = (ProductTypes)dataGridProducts.SelectedItem;
+                Manager.FrmProductTypes frmProductTypes = new Manager.FrmProductTypes();
+                frmProductTypes.ShowDialog();
+            }
+            else 
+            {
+                //there is no butoon clicked!
+            }
         }
     }
 }

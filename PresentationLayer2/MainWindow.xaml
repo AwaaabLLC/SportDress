@@ -166,7 +166,7 @@
                     <Grid Grid.Column="7"></Grid>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <DataGrid x:Name="dataGridProducts"/>
+                    <DataGrid x:Name="dataGridProducts" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" MouseDoubleClick="dataGridProducts_MouseDoubleClick"/>
                 </Grid>
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
