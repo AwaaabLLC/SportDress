@@ -141,7 +141,7 @@ namespace PresentationLayer.Manager {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/PresentationLayer;V1.0.0.0;component/manager/frmproductsize.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/PresentationLayer;component/manager/frmproductsize.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Manager\FrmProductSize.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

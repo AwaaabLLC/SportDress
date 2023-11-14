@@ -13,6 +13,27 @@ namespace DataAccessLayer
 {
     public class ManagerAccessor : IManagerAccessor
     {
+        public int insertProductImage(Images productImage)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_product_image", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ProductId", productImage.ProductId);
+            cmd.Parameters.AddWithValue("@ImageUrl", productImage.ImageUrl);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public List<Images> selectProductImages()
         {
             List<Images> images = new List<Images>();

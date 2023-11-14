@@ -353,3 +353,18 @@ AS
 		FROM [dbo].[productstypes]
 	END
 GO
+print '' print '*** creating sp_insert_product_image'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_product_image]
+(
+	@ProductId int, @ImageUrl [nvarchar](255)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[productsImages]
+	([productID], [imageUrl])
+	VALUES
+	(@ProductId, @ImageUrl)
+	Return @@ROWCOUNT
+	END
+GO

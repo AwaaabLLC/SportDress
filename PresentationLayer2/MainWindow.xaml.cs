@@ -216,6 +216,7 @@ namespace PresentationLayer
             productImages = managerManager.getProductImages();
             dataGridProducts.ItemsSource = productImages;
             dataType = "productImages";
+
         }
 
         private void dataGridProducts_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -252,6 +253,34 @@ namespace PresentationLayer
             {
                 //there is no butoon clicked!
             }
+        }
+
+        private void btnAddProductImages_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.FrmProductImage frmProductImage = new Manager.FrmProductImage();
+            frmProductImage.ShowDialog();
+            List<Images> productImages = new List<Images>();
+            productImages = managerManager.getProductImages();
+            dataGridProducts.ItemsSource = productImages;
+            dataType = "productImages";
+        }
+
+        private void btnAddProducts_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.FrmProducts frmProducts = new Manager.FrmProducts();
+            frmProducts.ShowDialog();
+        }
+
+        private void btnAddProductSize_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.FrmProductSize frmProductSize = new Manager.FrmProductSize();
+            frmProductSize.ShowDialog();
+        }
+
+        private void btnAddProductType_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.FrmProductTypes frmProductTypes = new Manager.FrmProductTypes();
+            frmProductTypes.ShowDialog();
         }
     }
 }

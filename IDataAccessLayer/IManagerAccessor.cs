@@ -9,9 +9,10 @@ namespace IDataAccessLayer
 {
     public interface IManagerAccessor
     {
-        List<Images> selectProductImages();
-        List<Products> selectProducts();
-        List<ProductSizes> selectProductSizes();
-        List<ProductTypes> selectProductTypes();
+        public int insertProductImage(Images productImage);
+        public List<Images> selectProductImages();
+        public List<Products> selectProducts();
+        public List<ProductSizes> selectProductSizes();
+        public List<ProductTypes> selectProductTypes();
     }
 }
