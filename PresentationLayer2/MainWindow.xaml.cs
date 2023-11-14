@@ -269,6 +269,10 @@ namespace PresentationLayer
         {
             Manager.FrmProducts frmProducts = new Manager.FrmProducts();
             frmProducts.ShowDialog();
+            List<Products> products = new List<Products>();
+            products = managerManager.getProducts();
+            dataGridProducts.ItemsSource = products;
+            dataType = "products";
         }
 
         private void btnAddProductSize_Click(object sender, RoutedEventArgs e)

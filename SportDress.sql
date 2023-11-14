@@ -368,3 +368,20 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_insert_product'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_product]
+(
+	@ProductName [nvarchar](50), @Type [nvarchar](50), @Size [nvarchar](50), @Price [nvarchar](4)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[products]
+	([productName], [type],[size],[price])
+	VALUES
+	(@ProductName, @Type,@Size,@Price)
+
+	Return @@ROWCOUNT
+	END
+GO
+

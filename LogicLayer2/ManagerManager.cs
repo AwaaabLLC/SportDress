@@ -14,6 +14,13 @@ namespace LogicLayer
     {
         private IManagerAccessor managerAccessor = new ManagerAccessor();
 
+        public int addProduct(Products product)
+        {
+            int result = 0;
+            result = managerAccessor.insertProduct(product);
+            return result;
+        }
+
         public int addProductImage(Images productImage)
         {
             int result = 0;

@@ -9,6 +9,7 @@ namespace ILogicLayer
 {
     public interface IManagerManager
     {
+        public int addProduct(Products product);
         public int addProductImage(Images productImage);
         public List<Images> getProductImages();
         public List<Products> getProducts();
