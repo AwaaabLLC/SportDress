@@ -251,7 +251,7 @@ namespace PresentationLayer
             }
             else 
             {
-                //there is no butoon clicked!
+                //there is no button clicked!
             }
         }
 
@@ -279,12 +279,20 @@ namespace PresentationLayer
         {
             Manager.FrmProductSize frmProductSize = new Manager.FrmProductSize();
             frmProductSize.ShowDialog();
+            List<ProductSizes> productSizes = new List<ProductSizes>();
+            productSizes = managerManager.getProductSize();
+            dataGridProducts.ItemsSource= productSizes;
+            dataType = "productSizes";
         }
 
         private void btnAddProductType_Click(object sender, RoutedEventArgs e)
         {
             Manager.FrmProductTypes frmProductTypes = new Manager.FrmProductTypes();
             frmProductTypes.ShowDialog();
+            List<ProductTypes> productTypes = new List<ProductTypes>();
+            productTypes = managerManager.getProductType();
+            dataGridProducts.ItemsSource= productTypes;
+            dataType = "productTypes";
         }
     }
 }

@@ -57,6 +57,48 @@ namespace DataAccessLayer
             return result;
         }
 
+        public int insertProductSize(ProductSizes productSizes)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_product_size", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ProductsSizeName", productSizes.ProductsSizeName);
+            cmd.Parameters.AddWithValue("@Description", productSizes.Description);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
+        public int insertProductType(ProductTypes productTypes)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_product_type", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ProductTypeName", productTypes.ProductTypeName);
+            cmd.Parameters.AddWithValue("@Description", productTypes.Description);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public List<Images> selectProductImages()
         {
             List<Images> images = new List<Images>();

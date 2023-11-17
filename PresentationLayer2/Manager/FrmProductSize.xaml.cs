@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using LogicLayer;
+using ILogicLayer;
+using DataObjects;
 
 namespace PresentationLayer.Manager
 {
@@ -19,9 +22,38 @@ namespace PresentationLayer.Manager
     /// </summary>
     public partial class FrmProductSize : Window
     {
+        private IManagerManager manager;
         public FrmProductSize()
         {
             InitializeComponent();
+            manager = new ManagerManager();
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            if (!validateForm())
+            {
+                return;
+            }
+            ProductSizes productSizes = new ProductSizes();
+            productSizes.ProductsSizeName = txtProductSizeName.Text;
+            productSizes.Description = txtDescription.Text;
+            int result = manager.addProductSize(productSizes);
+        }
+
+        private bool validateForm()
+        {
+            if (txtProductSizeName.Text.Length == 0) {
+                lblFormMessage.Content = "product size name is require";
+                return false;
+            }
+            if (txtDescription.Text.Length == 0)
+            {
+                lblFormMessage.Content = "description is require";
+                return false;
+            }
+            lblFormMessage.Content = "";
+            return true;
         }
     }
 }

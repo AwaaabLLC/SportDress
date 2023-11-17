@@ -48,8 +48,10 @@
                     <Label x:Name="lblDescription" Content="Description"/>
                 </Grid>
                 <Grid Grid.Row="2">
+                    <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
                 </Grid>
                 <Grid Grid.Row="3">
+                    <Label x:Name="lblFormMessage"/>
                 </Grid>
                 <Grid Grid.Row="4">
                 </Grid>

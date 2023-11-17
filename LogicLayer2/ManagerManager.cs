@@ -28,6 +28,20 @@ namespace LogicLayer
             return result;
         }
 
+        public int addProductSize(ProductSizes productSizes)
+        {
+            int result = 0;
+            result = managerAccessor.insertProductSize(productSizes);
+            return result;
+        }
+
+        public int addProductType(ProductTypes productTypes)
+        {
+            int result = 0;
+            result = managerAccessor.insertProductType(productTypes);
+            return result;
+        }
+
         public List<Images> getProductImages()
         {
             List<Images> images = new List<Images>();

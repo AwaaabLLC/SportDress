@@ -11,6 +11,8 @@ namespace ILogicLayer
     {
         public int addProduct(Products product);
         public int addProductImage(Images productImage);
+        public int addProductSize(ProductSizes productSizes);
+        public int addProductType(ProductTypes productTypes);
         public List<Images> getProductImages();
         public List<Products> getProducts();
         public List<ProductSizes> getProductSize();

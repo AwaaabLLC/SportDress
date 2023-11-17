@@ -279,7 +279,7 @@ GO
 CREATE PROCEDURE [dbo].[sp_select_employee]
 AS
 	BEGIN
-		SELECT EmployeeID,GivenName, 				FamilyName,PhoneNumber,Email,PasswordHash,Active
+		SELECT EmployeeID,GivenName,FamilyName,PhoneNumber,Email,PasswordHash,Active
 		FROM [dbo].[Employees]
 		WHERE Active = 1
 	END
@@ -311,7 +311,7 @@ CREATE PROCEDURE [dbo].[sp_delete_employee](
 AS
 	BEGIN
 		UPDATE [dbo].[Employees]
-		SET Active = 1
+		SET Active = 0
 		WHERE
 		    employeeId = @employeeId
 		Return @@ROWCOUNT
@@ -384,4 +384,33 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
-
+print '' print '*** creating sp_insert_product_type'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_product_type]
+(
+	@ProductTypeName [nvarchar](50), @Description [nvarchar](255)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[productstypes]
+	([productTypeName], [description])
+	VALUES
+	(@ProductTypeName, @Description)
+	Return @@ROWCOUNT
+	END
+GO
+print '' print '*** creating sp_insert_product_size'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_product_size]
+(
+	@ProductsSizeName [nvarchar](50), @Description [nvarchar](255)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[productsSizes]
+	([productsSizeName], [description])
+	VALUES
+	(@ProductsSizeName, @Description)
+	Return @@ROWCOUNT
+	END
+GO

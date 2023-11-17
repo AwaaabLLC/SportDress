@@ -11,6 +11,8 @@ namespace IDataAccessLayer
     {
         public int insertProduct(Products product);
         public int insertProductImage(Images productImage);
+        public int insertProductSize(ProductSizes productSizes);
+        public int insertProductType(ProductTypes productTypes);
         public List<Images> selectProductImages();
         public List<Products> selectProducts();
         public List<ProductSizes> selectProductSizes();
