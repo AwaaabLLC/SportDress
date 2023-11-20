@@ -39,12 +39,29 @@ namespace PresentationLayer.Manager
             productSizes.ProductsSizeName = txtProductSizeName.Text;
             productSizes.Description = txtDescription.Text;
             int result = manager.addProductSize(productSizes);
+            if (result == 0)
+            {
+                lblFormMessage.Content = "Product size did not added!";
+            }
+            lblFormMessage.Content = "Product Size Added";
+            clearForm();
+        }
+
+        private void clearForm()
+        {
+            txtProductSizeName.Text = "";
+            txtDescription.Text = "";
         }
 
         private bool validateForm()
         {
             if (txtProductSizeName.Text.Length == 0) {
                 lblFormMessage.Content = "product size name is require";
+                return false;
+            }
+            if (txtProductSizeName.Text.Length > 4)
+            {
+                lblFormMessage.Content = "product size name max four chars";
                 return false;
             }
             if (txtDescription.Text.Length == 0)

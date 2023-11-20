@@ -67,9 +67,10 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <TextBox x:Name="txtProductId"/>
+                    <ComboBox x:Name="comboProductId"/>
                 </Grid>
                 <Grid Grid.Row="1">
+                  
                     <TextBox x:Name="txtURL"/>
                 </Grid>
                 <Grid Grid.Row="2">

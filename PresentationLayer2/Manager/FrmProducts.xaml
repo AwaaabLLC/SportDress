@@ -78,10 +78,10 @@
                     <TextBox x:Name="txtProductName"/>
                 </Grid>
                 <Grid Grid.Row="2">
-                    <TextBox x:Name="txtType"/>
+                    <ComboBox x:Name="comboType"/>
                 </Grid>
                 <Grid Grid.Row="3">
-                    <TextBox x:Name="txtSize"/>
+                    <ComboBox x:Name="comboSize"/>
                 </Grid>
                 <Grid Grid.Row="4">
                     <TextBox x:Name="txtPrice"/>

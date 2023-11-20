@@ -23,10 +23,42 @@ namespace PresentationLayer.Manager
     public partial class FrmProducts : Window
     {
         private IManagerManager productManager = null;
+        List<ProductTypes> productTypes = null;
+        List<ProductSizes> productSizes = null;
         public FrmProducts()
         {
             InitializeComponent();
             productManager = new ManagerManager();
+            productTypes = new List<ProductTypes>();
+            productSizes = new List<ProductSizes>();
+            RetrivecomboData();
+        }
+
+        private void RetrivecomboData()
+        {
+            productTypes = productManager.getProductType();
+            List<string> names = new List<string>();
+            foreach (ProductTypes type in productTypes)
+            {
+                if (type.ProductTypeName != null)
+                {
+                    names.Add(type.ProductTypeName);
+                }
+                
+            }
+            comboType.ItemsSource = names; 
+            comboType.SelectedIndex = 0;
+            names = new List<string>();
+            productSizes = productManager.getProductSize();
+            foreach (ProductSizes type in productSizes)
+            {
+                if (type.ProductsSizeName != null)
+                {
+                    names.Add(type.ProductsSizeName);
+                }                
+            }
+            comboSize.ItemsSource = names; 
+            comboSize.SelectedIndex = 0;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -38,8 +70,8 @@ namespace PresentationLayer.Manager
             int result = 0;
             Products product = new Products();
             product.ProductName = txtProductName.Text;
-            product.Type = txtType.Text;
-            product.Size = txtSize.Text;
+            product.Type = comboType.SelectedItem.ToString() ;
+            product.Size = comboSize.SelectedItem.ToString();
             product.Price = txtPrice.Text;
             result = productManager.addProduct(product);
             if (result == 0)
@@ -54,8 +86,8 @@ namespace PresentationLayer.Manager
         private void clearForm()
         {
             txtProductName.Text = string.Empty;
-            txtType.Text = string.Empty;
-            txtSize.Text = string.Empty;
+            comboType.SelectedIndex = 0;
+            comboSize.SelectedIndex = 0;
             txtPrice.Text = string.Empty;
         }
 
@@ -66,12 +98,12 @@ namespace PresentationLayer.Manager
                 lblFormMessage.Content = "Product Name is require";
                 return false;
             }
-            if (txtType.Text == string.Empty)
+            if (comboType.SelectedItem == null)
             {
                 lblFormMessage.Content = "Product Type is require";
                 return false;
             }
-            if (txtSize.Text == string.Empty)
+            if (comboSize.SelectedItem == null)
             {
                 lblFormMessage.Content = "Product Size is require";
                 return false;

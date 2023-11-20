@@ -403,7 +403,7 @@ print '' print '*** creating sp_insert_product_size'
 GO
 CREATE PROCEDURE [dbo].[sp_insert_product_size]
 (
-	@ProductsSizeName [nvarchar](50), @Description [nvarchar](255)
+	@ProductsSizeName [nvarchar](4), @Description [nvarchar](255)
 )
 AS
 	BEGIN

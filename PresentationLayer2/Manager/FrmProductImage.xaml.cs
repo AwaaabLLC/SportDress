@@ -23,10 +23,25 @@ namespace PresentationLayer.Manager
     public partial class FrmProductImage : Window
     {
         private IManagerManager productManager = null;
+        private List<Products> products;
         public FrmProductImage()
         {
             InitializeComponent();
             productManager = new ManagerManager();
+            products = new List<Products>();
+            fillCombos();
+        }
+
+        private void fillCombos()
+        {
+            products = productManager.getProducts();
+            List<int> ids = new List<int>();
+            foreach (Products product in products)
+            {
+                ids.Add(product.ProductId);
+            }
+            comboProductId.ItemsSource = ids;
+            comboProductId.SelectedIndex = 0;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -37,7 +52,12 @@ namespace PresentationLayer.Manager
             } 
             int result = 0;
             Images productImage = new Images();
-            productImage.ProductId = Convert.ToInt32(txtProductId.Text);
+            if (comboProductId.SelectedItem.ToString != null)
+            {
+                lblFormMessage.Content = "Please select product";
+                return;
+            }
+            productImage.ProductId = Convert.ToInt32(comboProductId.SelectedItem.ToString());
             productImage.ImageUrl = txtURL.Text;
 
             result = productManager.addProductImage(productImage);
@@ -52,13 +72,13 @@ namespace PresentationLayer.Manager
 
         private void clearFormData()
         {
-            txtProductId.Text = string.Empty;
+            comboProductId.SelectedIndex = 0;
             txtURL.Text = string.Empty;
         }
 
         private bool validateData()
         {
-            if (txtProductId.Text == string.Empty)
+            if (comboProductId.SelectedItem == null)
             {
                 lblFormMessage.Content = "product Id require";
                 return false;
