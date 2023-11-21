@@ -246,8 +246,12 @@ namespace PresentationLayer
             {
                 ProductTypes productType = new ProductTypes();
                 productType = (ProductTypes)dataGridProducts.SelectedItem;
-                Manager.FrmProductTypes frmProductTypes = new Manager.FrmProductTypes();
+                Manager.FrmProductTypes frmProductTypes = new Manager.FrmProductTypes(productType);
                 frmProductTypes.ShowDialog();
+                List<ProductTypes> productTypes = new List<ProductTypes>();
+                productTypes = managerManager.getProductType();
+                dataGridProducts.ItemsSource = productTypes;
+                dataType = "productTypes";
             }
             else 
             {

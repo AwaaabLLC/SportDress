@@ -23,10 +23,30 @@ namespace PresentationLayer.Manager
     public partial class FrmProductTypes : Window
     {
         private IManagerManager manager;
+        private ProductTypes _productType = null;
+        private string formType = string.Empty;
         public FrmProductTypes()
         {
             InitializeComponent();
             manager = new ManagerManager();
+            this._productType = new ProductTypes();
+            formType = "New";
+        }
+
+        public FrmProductTypes(ProductTypes productType)
+        {
+            InitializeComponent();
+            manager = new ManagerManager();
+            _productType = productType;
+            fillForm();
+        }
+
+        private void fillForm()
+        {
+            txtProductTypeName.Text = _productType.ProductTypeName;
+            txtProductTypeName.IsReadOnly = true;
+            txtDescription.Text = _productType.Description;
+            formType = "Edit";
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -34,11 +54,18 @@ namespace PresentationLayer.Manager
             if (!validateFormData())
             {
                 return;
-            } 
-            ProductTypes productTypes = new ProductTypes();
-            productTypes.ProductTypeName = txtProductTypeName.Text;
-            productTypes.Description = txtDescription.Text;
-            int result = manager.addProductType(productTypes);
+            }
+            _productType.ProductTypeName = txtProductTypeName.Text;
+            _productType.Description = txtDescription.Text;
+            int result = 0;
+            if (formType == "New") {
+                result = manager.addProductType(_productType);
+            }
+            else
+            {
+                result = manager.editProductType(_productType);
+            }
+             
             if (result == 0)
             {
                 lblFormMessage.Content = "there is an error, call admin";

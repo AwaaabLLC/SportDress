@@ -218,5 +218,26 @@ namespace DataAccessLayer
             finally { conn.Close(); }
             return productTypes;
         }
+
+        public int updateProductType(ProductTypes productType)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_update_product_type", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ProductTypeName", productType.ProductTypeName);
+            cmd.Parameters.AddWithValue("@Description", productType.Description);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
     }
 }

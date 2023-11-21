@@ -414,3 +414,17 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_update_product_type'
+GO
+CREATE PROCEDURE [dbo].[sp_update_product_type]
+(
+	@ProductTypeName [nvarchar](50), @Description [nvarchar](255)
+)
+AS
+	BEGIN
+		UPDATE [dbo].[productstypes]
+		SET [productTypeName]= @ProductTypeName, [description]= @Description
+		WHERE [productTypeName]= @ProductTypeName
+	Return @@ROWCOUNT
+	END
+GO

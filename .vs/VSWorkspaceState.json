@@ -1,9 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\DataAccessLayer",
-    "\\IDataAccessLayer"
+    ""
   ],
-  "SelectedNode": "\\IDataAccessLayer\\IEmployeeAccessor.cs",
   "PreviewInSolutionExplorer": false
 }
