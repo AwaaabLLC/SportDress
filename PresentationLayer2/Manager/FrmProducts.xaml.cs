@@ -23,9 +23,10 @@ namespace PresentationLayer.Manager
     public partial class FrmProducts : Window
     {
         private IManagerManager productManager = null;
-        List<ProductTypes> productTypes = null;
-        List<ProductSizes> productSizes = null;
+        private List<ProductTypes> productTypes = null;
+        private List<ProductSizes> productSizes = null;
         private Products products;
+        private bool isEdit = false;
 
         public FrmProducts()
         {
@@ -33,12 +34,23 @@ namespace PresentationLayer.Manager
             productManager = new ManagerManager();
             productTypes = new List<ProductTypes>();
             productSizes = new List<ProductSizes>();
+            this.products = new Products();
             RetrivecomboData();
         }
 
         public FrmProducts(Products products)
         {
+            InitializeComponent();
+            productManager = new ManagerManager();
+            productTypes = new List<ProductTypes>();
+            productSizes = new List<ProductSizes>();
+            RetrivecomboData();
             this.products = products;
+            txtProductName.Text = this.products.ProductName;
+            comboType.SelectedItem = this.products.Type;
+            comboSize.SelectedItem = this.products.Size;
+            txtPrice.Text = this.products.Price;
+            isEdit = true;
         }
 
         private void RetrivecomboData()
@@ -75,12 +87,20 @@ namespace PresentationLayer.Manager
                 return;
             }
             int result = 0;
-            Products product = new Products();
-            product.ProductName = txtProductName.Text;
-            product.Type = comboType.SelectedItem.ToString() ;
-            product.Size = comboSize.SelectedItem.ToString();
-            product.Price = txtPrice.Text;
-            result = productManager.addProduct(product);
+            
+            this.products.ProductName = txtProductName.Text;
+            this.products.Type = comboType.SelectedItem.ToString() ;
+            this.products.Size = comboSize.SelectedItem.ToString();
+            this.products.Price = txtPrice.Text;
+            if (isEdit)
+            {
+                result = productManager.editProduct(this.products);
+            }
+            else
+            {
+                result = productManager.addProduct(this.products);
+            }
+            
             if (result == 0)
             {
                 lblFormMessage.Content = "there is an error, please try again";

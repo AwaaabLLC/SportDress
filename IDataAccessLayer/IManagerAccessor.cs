@@ -9,6 +9,7 @@ namespace IDataAccessLayer
 {
     public interface IManagerAccessor
     {
+        public int updateProductType(Products products);
         public int insertProduct(Products product);
         public int insertProductImage(Images productImage);
         public int insertProductSize(ProductSizes productSizes);

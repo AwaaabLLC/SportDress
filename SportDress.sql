@@ -443,3 +443,17 @@ AS
 		Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating  sp_update_product'
+GO
+CREATE PROCEDURE [dbo].[sp_update_product]
+(
+	@ProductId [int], @ProductName [nvarchar](50), @Type [nvarchar](50), @Size [nvarchar](50), @Price [nvarchar](4)
+)
+AS
+	BEGIN
+		UPDATE [dbo].[products]
+		SET [productName]=@ProductName, [type]=@Type,[size]=@Size,[price]=@Price
+		WHERE [productID]= @ProductId
+		Return @@ROWCOUNT
+	END
+GO
