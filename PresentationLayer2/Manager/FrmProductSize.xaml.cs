@@ -23,10 +23,17 @@ namespace PresentationLayer.Manager
     public partial class FrmProductSize : Window
     {
         private IManagerManager manager;
+        private ProductSizes productSize;
+
         public FrmProductSize()
         {
             InitializeComponent();
             manager = new ManagerManager();
+        }
+
+        public FrmProductSize(ProductSizes productSize)
+        {
+            this.productSize = productSize;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)

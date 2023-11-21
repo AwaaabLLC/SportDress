@@ -219,6 +219,28 @@ namespace DataAccessLayer
             return productTypes;
         }
 
+        public int updateProductImage(Images productImage)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_update_product_image", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ImageID", productImage.ImageID );
+            cmd.Parameters.AddWithValue("@ProductId", productImage.ProductId);
+            cmd.Parameters.AddWithValue("@ImageUrl", productImage.ImageUrl);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public int updateProductType(ProductTypes productType)
         {
             int result = 0;

@@ -24,12 +24,28 @@ namespace PresentationLayer.Manager
     {
         private IManagerManager productManager = null;
         private List<Products> products;
+        private Images images;
+        private string editOrNew = "";
         public FrmProductImage()
         {
             InitializeComponent();
             productManager = new ManagerManager();
             products = new List<Products>();
             fillCombos();
+            editOrNew = "New";
+            images = new Images();
+        }
+
+        public FrmProductImage(Images images)
+        {
+            InitializeComponent();
+            productManager = new ManagerManager();
+            products = new List<Products>();
+            fillCombos();
+            this.images = images;
+            comboProductId.SelectedItem = images.ProductId;
+            txtURL.Text = images.ImageUrl;
+            editOrNew = "Edit";
         }
 
         private void fillCombos()
@@ -51,22 +67,28 @@ namespace PresentationLayer.Manager
                 return;
             } 
             int result = 0;
-            Images productImage = new Images();
-            if (comboProductId.SelectedItem.ToString != null)
+            
+            if (comboProductId.SelectedItem.ToString == null)
             {
                 lblFormMessage.Content = "Please select product";
                 return;
             }
-            productImage.ProductId = Convert.ToInt32(comboProductId.SelectedItem.ToString());
-            productImage.ImageUrl = txtURL.Text;
-
-            result = productManager.addProductImage(productImage);
+            images.ProductId = Convert.ToInt32(comboProductId.SelectedItem.ToString());
+            images.ImageUrl = txtURL.Text;
+            if (editOrNew == "New")
+            {
+                result = productManager.addProductImage(images);
+            }
+            if (editOrNew=="Edit")
+            {
+                result = productManager.editProductImage(images);
+            }
             if (result == 0)
             {
                 lblFormMessage.Content = "there is an error, please try again later";
                 return;
             }
-            lblFormMessage.Content = "image added corectly";
+            lblFormMessage.Content = "image added correctly";
             clearFormData();
         }
 

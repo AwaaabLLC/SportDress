@@ -25,6 +25,8 @@ namespace PresentationLayer.Manager
         private IManagerManager productManager = null;
         List<ProductTypes> productTypes = null;
         List<ProductSizes> productSizes = null;
+        private Products products;
+
         public FrmProducts()
         {
             InitializeComponent();
@@ -32,6 +34,11 @@ namespace PresentationLayer.Manager
             productTypes = new List<ProductTypes>();
             productSizes = new List<ProductSizes>();
             RetrivecomboData();
+        }
+
+        public FrmProducts(Products products)
+        {
+            this.products = products;
         }
 
         private void RetrivecomboData()

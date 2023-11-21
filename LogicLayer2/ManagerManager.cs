@@ -42,6 +42,13 @@ namespace LogicLayer
             return result;
         }
 
+        public int editProductImage(Images productImage)
+        {
+            int result = 0;
+            result = managerAccessor.updateProductImage(productImage);
+            return result;
+        }
+
         public int editProductType(ProductTypes productType)
         {
             int result = 0;

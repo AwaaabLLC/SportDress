@@ -428,3 +428,18 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
+
+print '' print '*** creating  sp_update_product_image'
+GO
+CREATE PROCEDURE [dbo].[sp_update_product_image]
+(
+	@ImageID [int], @ProductId [int], @ImageUrl [nvarchar](255)
+)
+AS
+	BEGIN
+		UPDATE [dbo].[productsImages]
+		SET [productID]= @ProductId, [imageUrl]= @ImageUrl
+		WHERE [imageID]= @ImageID
+		Return @@ROWCOUNT
+	END
+GO

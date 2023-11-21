@@ -225,22 +225,35 @@ namespace PresentationLayer
             {
                 Images images = new Images();
                 images = (Images)dataGridProducts.SelectedItem;
-                Manager.FrmProductImage frmProductImage = new Manager.FrmProductImage();
+                Manager.FrmProductImage frmProductImage = new Manager.FrmProductImage(images);
                 frmProductImage.ShowDialog();
+                List<Images> productImages = new List<Images>();
+                productImages = managerManager.getProductImages();
+                dataGridProducts.ItemsSource = productImages;
+                dataType = "productImages";
 
-            }else if (dataType == "products")
+            }
+            else if (dataType == "products")
             {
                 Products products = new Products();
                 products = (Products)dataGridProducts.SelectedItem;
-                Manager.FrmProducts frmProducts = new Manager.FrmProducts();
+                Manager.FrmProducts frmProducts = new Manager.FrmProducts(products);
                 frmProducts.ShowDialog();
+                List<Products> allProducts = new List<Products>();
+                allProducts = managerManager.getProducts();
+                dataGridProducts.ItemsSource = allProducts;
+                dataType = "products";
             }
             else if(dataType == "productSizes")
             {
                 ProductSizes productSize = new ProductSizes(); 
                 productSize = (ProductSizes)dataGridProducts.SelectedItem;
-                Manager.FrmProductSize frmProductSize = new Manager.FrmProductSize();
+                Manager.FrmProductSize frmProductSize = new Manager.FrmProductSize(productSize);
                 frmProductSize.ShowDialog();
+                List<ProductSizes> productSizes = new List<ProductSizes>();
+                productSizes = managerManager.getProductSize();
+                dataGridProducts.ItemsSource = productSizes;
+                dataType = "productSizes";
             }
             else if (dataType == "productTypes")
             {
