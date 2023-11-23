@@ -56,6 +56,13 @@ namespace LogicLayer
             return result;
         }
 
+        public int editProductSize(ProductSizes productSize)
+        {
+            int result = 0;
+            result = managerAccessor.updateProductSize(productSize);
+            return result;
+        }
+
         public int editProductType(ProductTypes productType)
         {
             int result = 0;

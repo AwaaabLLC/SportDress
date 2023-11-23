@@ -457,3 +457,18 @@ AS
 		Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_update_product_size'
+GO
+CREATE PROCEDURE [dbo].[sp_update_product_size]
+(
+	@ProductsSizeName [nvarchar](50), @Description [nvarchar](255)
+)
+AS
+	BEGIN
+		UPDATE [dbo].[productsSizes]
+		SET [productsSizeName]= @ProductsSizeName, [description]= @Description
+		WHERE [productsSizeName]= @ProductsSizeName
+	Return @@ROWCOUNT
+	END
+GO
+

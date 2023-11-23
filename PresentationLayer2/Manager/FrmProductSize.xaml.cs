@@ -24,16 +24,29 @@ namespace PresentationLayer.Manager
     {
         private IManagerManager manager;
         private ProductSizes productSize;
-
+        private string editOrNew;
         public FrmProductSize()
         {
             InitializeComponent();
             manager = new ManagerManager();
+            productSize = new ProductSizes();
+            editOrNew = "New";
         }
 
         public FrmProductSize(ProductSizes productSize)
         {
+            InitializeComponent();
+            manager = new ManagerManager();
             this.productSize = productSize;
+            fiilForm();
+            editOrNew = "Edit";
+        }
+
+        private void fiilForm()
+        {
+            txtProductSizeName.Text = productSize.ProductsSizeName;
+            txtProductSizeName.IsReadOnly = true;
+            txtDescription.Text = productSize.Description;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -42,10 +55,18 @@ namespace PresentationLayer.Manager
             {
                 return;
             }
-            ProductSizes productSizes = new ProductSizes();
-            productSizes.ProductsSizeName = txtProductSizeName.Text;
-            productSizes.Description = txtDescription.Text;
-            int result = manager.addProductSize(productSizes);
+            productSize.ProductsSizeName = txtProductSizeName.Text;
+            productSize.Description = txtDescription.Text;
+            int result = 0;
+            if (editOrNew == "New")
+            {
+                result = manager.addProductSize(productSize);
+            }
+            else if (editOrNew == "Edit")
+            {
+                result = manager.editProductSize(productSize);
+            }
+            
             if (result == 0)
             {
                 lblFormMessage.Content = "Product size did not added!";

@@ -20,5 +20,6 @@ namespace IDataAccessLayer
         public List<ProductTypes> selectProductTypes();
         public int updateProductImage(Images productImage);
         public int updateProductType(ProductTypes productType);
+        public int updateProductSize(ProductSizes productSize);
     }
 }
