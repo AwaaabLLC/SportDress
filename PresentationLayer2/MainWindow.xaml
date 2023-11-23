@@ -190,7 +190,22 @@
                 </Grid>
             </Grid>
             <Grid  Grid.Row="1" x:Name="gridEmployeeMenu">
-                <Label Content="grid Employee"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblEmployeeMenu" Content="Employee Menu"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid x:Name="dgCustomers"/>
+                </Grid>
+                <Grid Grid.Row="2"></Grid>
+                <Grid Grid.Row="3"></Grid>
+                <Grid Grid.Row="4"></Grid>
             </Grid>
         </Grid>
         <Grid Grid.Row="2">

@@ -472,3 +472,13 @@ AS
 	END
 GO
 
+print '' print '*** creating sp_select_all_customers'
+GO
+CREATE PROCEDURE [dbo].[sp_select_all_customers]
+AS
+	BEGIN
+		SELECT [CustomerID],[GivenName], [FamilyName],[PhoneNumber],[Email],[line1],[line2],[zipcode]
+		FROM [dbo].[Customers]
+	END
+GO
+

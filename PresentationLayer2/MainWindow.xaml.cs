@@ -22,11 +22,15 @@ namespace PresentationLayer
         private IEmployeesManager employeesManager;
         private IManagerManager managerManager;
         private string dataType = "";
+        private Customer customer;
+        private ICustomersManager customersManager;
         public MainWindow()
         {
             InitializeComponent();
             employeesManager = new EmployeesManager();
             managerManager = new ManagerManager();
+            customer = new Customer();
+            customersManager = new CustomersManager();
             gridBody.Visibility = Visibility.Collapsed;
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -97,7 +101,15 @@ namespace PresentationLayer
                 gridAdminMenu.Visibility = Visibility.Hidden;
                 gridManagerMenu.Visibility = Visibility.Hidden;
                 gridEmployeeMenu.Visibility = Visibility.Visible;
+                fillDataGrid();
             }
+        }
+
+        private void fillDataGrid()
+        {
+            List<Customer> cus = new List<Customer>();
+            cus = customersManager.getAllCustomers();
+            dgCustomers.ItemsSource = cus;
         }
 
         private void clearLoginText()
