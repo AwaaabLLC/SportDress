@@ -328,6 +328,7 @@ namespace PresentationLayer
         {
             CustomerForms.FrmCustomer frmCustomer = new CustomerForms.FrmCustomer();
             frmCustomer.ShowDialog();
+            fillDataGrid();
         }
     }
 }

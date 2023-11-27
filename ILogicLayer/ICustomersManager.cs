@@ -9,6 +9,7 @@ namespace ILogicLayer
 {
     public interface ICustomersManager
     {
+        public int add(Customer customer);
         public List<Customer> getAllCustomers();
     }
 }

@@ -9,6 +9,7 @@ namespace IDataAccessLayer
 {
     public interface ICustomerAccessor
     {
+        public int insert(Customer customer);
         public List<Customer> SelectAllCustomers();
     }
 }

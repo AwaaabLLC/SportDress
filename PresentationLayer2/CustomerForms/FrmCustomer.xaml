@@ -12,7 +12,7 @@
             <RowDefinition/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label x:Name="lblTitle" Content="CustomerForm"/>
@@ -68,7 +68,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Grid Grid.Column="0">
-                        <Label x:Name="lblPhoneNumber" Content="Phone  number"/>
+                        <Label x:Name="lblPhoneNumber" Content="Phone number"/>
                     </Grid>
                     <Grid Grid.Column="1">
                         <TextBox x:Name="txtPhoneNumber"/>

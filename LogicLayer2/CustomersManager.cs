@@ -17,6 +17,13 @@ namespace LogicLayer
             _customerAccessor = new CustomersAccessor();
         }
 
+        public int add(Customer customer)
+        {
+            int result = 0;
+            result = _customerAccessor.insert(customer);
+            return result;
+        }
+
         public List<Customer> getAllCustomers()
         {
             List<Customer> list = new List<Customer>();

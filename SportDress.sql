@@ -481,4 +481,18 @@ AS
 		FROM [dbo].[Customers]
 	END
 GO
-
+print '' print '*** creating sp_insert_customer'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_customer]
+(
+	@GivenName [nvarchar](50), @FamilyName [nvarchar](50),@PhoneNumber [nvarchar](11),@Email [nvarchar](250),@line1 [nvarchar](250),@line2 [nvarchar](250),@zipcode [nvarchar](10)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[Customers]
+	([GivenName], [FamilyName],[PhoneNumber],[Email],[line1],[line2],[zipcode])
+	VALUES
+	(@GivenName, @FamilyName,@PhoneNumber,@Email,@line1,@line2,@zipcode)
+	Return @@ROWCOUNT
+	END
+GO

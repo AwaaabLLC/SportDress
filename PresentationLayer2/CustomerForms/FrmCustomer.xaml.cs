@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ILogicLayer;
+using LogicLayer;
+using DataObjects;
 
 namespace PresentationLayer.CustomerForms
 {
@@ -19,9 +22,13 @@ namespace PresentationLayer.CustomerForms
     /// </summary>
     public partial class FrmCustomer : Window
     {
+        private Customer customer;
+        private ICustomersManager customerManager;
         public FrmCustomer()
         {
             InitializeComponent();
+            customer = new Customer();
+            customerManager = new CustomersManager();
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -30,7 +37,21 @@ namespace PresentationLayer.CustomerForms
             {
                 return;
             }
-            lblFormNote.Content = "testing";
+            int result = 0;
+            customer.GivenName = txtGivenName.Text;
+            customer.FamilyName = txtFamilyName.Text;
+            customer.PhoneNumber = txtPhoneNumber.Text;
+            customer.Email = txtEmail.Text;
+            customer.line1 = txtLine1.Text;
+            customer.line2 = txtLine2.Text;
+            customer.zipcode = txtZipcode.Text;
+            result = customerManager.add(customer);
+            if (result == 0)
+            {
+                lblFormNote.Content = "Customer did not added correctly";
+                return;
+            }
+            lblFormNote.Content = "Customer added correctly";
         }
 
         private bool validateForm()

@@ -14,6 +14,32 @@ namespace DataAccessLayer
     {
         public CustomersAccessor() { }
 
+        public int insert(Customer customer)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_customer", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@GivenName", customer.GivenName);
+            cmd.Parameters.AddWithValue("@FamilyName", customer.FamilyName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Email", customer.Email);
+            cmd.Parameters.AddWithValue("@line1", customer.line1);
+            cmd.Parameters.AddWithValue("@line2", customer.line2);
+            cmd.Parameters.AddWithValue("@zipcode", customer.zipcode);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public List<Customer> SelectAllCustomers()
         {
             List<Customer> customers = new List<Customer>();
