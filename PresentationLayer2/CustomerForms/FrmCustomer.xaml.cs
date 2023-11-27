@@ -154,5 +154,50 @@ namespace PresentationLayer.CustomerForms
             lblFormNote.Content = "";
             return true;
         }
+
+        private void btnAddCard_Click(object sender, RoutedEventArgs e)
+        {
+            if (!validateCardForm())
+            {
+                return;
+            }
+            lblFormNote.Content = "Credit Card data valid";
+        }
+
+        private bool validateCardForm()
+        {
+            if (comboCustomers.SelectedItem == null)
+            {
+                lblFormNote.Content = "Customer require";
+                return false;
+            }
+            if (comboZipcodeCard.SelectedItem == null)
+            {
+                lblFormNote.Content = "Zipcode require";
+                return false;
+            }
+            if (txtCCNumber.Text.Length == 0)
+            {
+                lblFormNote.Content = "Credit Card number require";
+                return false;
+            }
+            if (txtCVV.Text.Length == 0)
+            {
+                lblFormNote.Content = "CVV require";
+                return false;
+            }
+            if (txtDateOfBirth.Text.Length == 0)
+            {
+                lblFormNote.Content = "Date of Birth require";
+                return false;
+            }
+            if (txtNameOnCard.Text.Length == 0)
+            {
+                lblFormNote.Content = "Name on card require";
+                return false;
+            }
+            lblFormNote.Content = "";
+            return true;
+        }
     }
 }

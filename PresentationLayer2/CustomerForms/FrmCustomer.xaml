@@ -207,14 +207,84 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0"></Grid>
-                <Grid Grid.Row="1"></Grid>
-                <Grid Grid.Row="2"></Grid>
-                <Grid Grid.Row="3"></Grid>
-                <Grid Grid.Row="4"></Grid>
-                <Grid Grid.Row="5"></Grid>
-                <Grid Grid.Row="6"></Grid>
-                <Grid Grid.Row="7"></Grid>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblCreditCard" Content="Add Credit Card" HorizontalAlignment="Center"/>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblCustomerName" Content="Customer"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <ComboBox x:Name="comboCustomers"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblZipcodeCard" Content="Zipcode"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <ComboBox x:Name="comboZipcodeCard"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblCreditCardNumber" Content="CC Number"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtCCNumber"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblCVV" Content="CVV"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtCVV"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblDateOfBirth" Content="Date of Birth"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtDateOfBirth"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblNameOnCard" Content="name On Card"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtNameOnCard"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="7">
+                    <Button x:Name="btnAddCard" Content="Add Card" HorizontalAlignment="Center" Click="btnAddCard_Click"/>
+                </Grid>
                 <Grid Grid.Row="8"></Grid>
                 <Grid Grid.Row="9"></Grid>
             </Grid>
