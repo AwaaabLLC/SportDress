@@ -24,11 +24,30 @@ namespace PresentationLayer.CustomerForms
     {
         private Customer customer;
         private ICustomersManager customerManager;
+        private List<Zipcode> zipcodeList;
         public FrmCustomer()
         {
             InitializeComponent();
             customer = new Customer();
             customerManager = new CustomersManager();
+            zipcodeList = new List<Zipcode>();
+            fillCombos();
+        }
+
+        private void fillCombos()
+        {
+            zipcodeList = customerManager.getZipcodes();
+            List<string> zipcodes = new List<string>();
+            foreach (Zipcode code in zipcodeList)
+            {
+                if (code.zipcode != null)
+                {
+                    zipcodes.Add(code.zipcode);
+                }
+                
+            }
+            comboZipCode.ItemsSource = zipcodes; 
+            comboZipCode.SelectedIndex = 0;
         }
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
@@ -44,7 +63,7 @@ namespace PresentationLayer.CustomerForms
             customer.Email = txtEmail.Text;
             customer.line1 = txtLine1.Text;
             customer.line2 = txtLine2.Text;
-            customer.zipcode = txtZipcode.Text;
+            customer.zipcode = comboZipCode.SelectedItem.ToString();
             result = customerManager.add(customer);
             if (result == 0)
             {
@@ -82,6 +101,11 @@ namespace PresentationLayer.CustomerForms
                 return false;
             }
             if (txtLine2.Text.Length == 0)
+            {
+                lblFormNote.Content = "line 2 require";
+                return false;
+            }
+            if (comboZipCode.SelectedItem == null)
             {
                 lblFormNote.Content = "line 2 require";
                 return false;

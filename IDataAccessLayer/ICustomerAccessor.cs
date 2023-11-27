@@ -11,5 +11,6 @@ namespace IDataAccessLayer
     {
         public int insert(Customer customer);
         public List<Customer> SelectAllCustomers();
+        public List<Zipcode> SelectZipcodes();
     }
 }

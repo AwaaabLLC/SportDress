@@ -496,3 +496,12 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_select_all_zipcodes'
+GO
+CREATE PROCEDURE [dbo].[sp_select_all_zipcodes]
+AS
+	BEGIN
+		SELECT [zipcode],[city], [state]
+		FROM [dbo].[Zipcodes]
+	END
+GO

@@ -11,5 +11,6 @@ namespace ILogicLayer
     {
         public int add(Customer customer);
         public List<Customer> getAllCustomers();
+        public List<Zipcode> getZipcodes();
     }
 }

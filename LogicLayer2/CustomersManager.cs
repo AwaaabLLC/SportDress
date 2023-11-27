@@ -30,5 +30,12 @@ namespace LogicLayer
             list = _customerAccessor.SelectAllCustomers();
             return list;
         }
+
+        public List<Zipcode> getZipcodes()
+        {
+            List<Zipcode> codes = new List<Zipcode>();
+            codes = _customerAccessor.SelectZipcodes();
+            return codes;
+        }
     }
 }

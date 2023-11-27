@@ -119,7 +119,8 @@
                         <Label x:Name="lblZipcode" Content="Zipcode"/>
                     </Grid>
                     <Grid Grid.Column="1">
-                        <TextBox x:Name="txtZipcode"/>
+                        <!--<TextBox x:Name=""/>-->
+                        <ComboBox x:Name="comboZipCode"/>
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="8"></Grid>

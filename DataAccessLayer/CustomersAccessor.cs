@@ -74,5 +74,35 @@ namespace DataAccessLayer
             finally { conn.Close(); }
             return customers;
         }
+
+        public List<Zipcode> SelectZipcodes()
+        {
+            List<Zipcode> zipcodes = new List<Zipcode>();
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_select_all_zipcodes", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            try
+            {
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        Zipcode code = new Zipcode();
+                        code.zipcode = reader.GetString(0);
+                        code.city = reader.GetString(1);
+                        code.state = reader.GetString(2);
+                        zipcodes.Add(code);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return zipcodes;
+        }
     }
 }
