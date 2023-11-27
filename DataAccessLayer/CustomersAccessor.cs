@@ -40,6 +40,28 @@ namespace DataAccessLayer
             return result;
         }
 
+        public int insertZipcode(Zipcode zipcode)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_zipcode", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@zipcode", zipcode.zipcode);
+            cmd.Parameters.AddWithValue("@city", zipcode.city);
+            cmd.Parameters.AddWithValue("@state", zipcode.state);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public List<Customer> SelectAllCustomers()
         {
             List<Customer> customers = new List<Customer>();

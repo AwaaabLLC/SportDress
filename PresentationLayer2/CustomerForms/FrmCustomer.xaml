@@ -37,7 +37,10 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0"></Grid>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblAddCustomer" Content="Add Customer"
+                           HorizontalAlignment="Center"/>
+                </Grid>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="90"/>
@@ -124,7 +127,10 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Row="8"></Grid>
-                <Grid Grid.Row="9"></Grid>
+                <Grid Grid.Row="9">
+                    <Button x:Name="btnSubmit" Content="Add Customer" Click="btnCustomerSubmit_Click"
+                            HorizontalAlignment="Center"/>
+                </Grid>
             </Grid>
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -139,12 +145,50 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0"></Grid>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblAddZipcode" Content="Add Zipcode"
+                           HorizontalAlignment="Center"/>
+                </Grid>
                 <Grid Grid.Row="1"></Grid>
-                <Grid Grid.Row="2"></Grid>
-                <Grid Grid.Row="3"></Grid>
-                <Grid Grid.Row="4"></Grid>
-                <Grid Grid.Row="5"></Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblNewZipcode" Content="Zipcode"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtNewZipcode"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblCity" Content="City"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtCity"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Label x:Name="lblState" Content="state"/>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBox x:Name="txtState"/>
+                    </Grid>
+                </Grid>
+                <Grid Grid.Row="5">
+                    <Button x:Name="btnAddZipCode" Content="Add Zipcode" HorizontalAlignment="Center" Click="btnAddZipCode_Click"/>
+                </Grid>
                 <Grid Grid.Row="6"></Grid>
                 <Grid Grid.Row="7"></Grid>
                 <Grid Grid.Row="8"></Grid>
@@ -217,7 +261,7 @@
             <Grid Grid.Column="2"></Grid>
             <Grid Grid.Column="3"></Grid>
             <Grid Grid.Column="4">
-                <Button x:Name="btnSubmit" Content="Submit" Click="btnSubmit_Click"/>
+                
             </Grid>
             <Grid Grid.Column="5"></Grid>
             <Grid Grid.Column="6"></Grid>

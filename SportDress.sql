@@ -505,3 +505,18 @@ AS
 		FROM [dbo].[Zipcodes]
 	END
 GO
+print '' print '*** creating sp_insert_zipcode'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_zipcode]
+(
+	@zipcode [nvarchar](10), @city [nvarchar](50),@state [nvarchar](50)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[Zipcodes]
+	([zipcode], [city],[state])
+	VALUES
+	(@zipcode, @city,@state)
+	Return @@ROWCOUNT
+	END
+GO

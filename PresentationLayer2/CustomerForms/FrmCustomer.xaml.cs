@@ -43,16 +43,15 @@ namespace PresentationLayer.CustomerForms
                 if (code.zipcode != null)
                 {
                     zipcodes.Add(code.zipcode);
-                }
-                
+                }                
             }
             comboZipCode.ItemsSource = zipcodes; 
             comboZipCode.SelectedIndex = 0;
         }
 
-        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        private void btnCustomerSubmit_Click(object sender, RoutedEventArgs e)
         {
-            if (!validateForm())
+            if (!validateCustomerForm())
             {
                 return;
             }
@@ -73,7 +72,7 @@ namespace PresentationLayer.CustomerForms
             lblFormNote.Content = "Customer added correctly";
         }
 
-        private bool validateForm()
+        private bool validateCustomerForm()
         {
             if (txtGivenName.Text.Length == 0)
             {
@@ -108,6 +107,48 @@ namespace PresentationLayer.CustomerForms
             if (comboZipCode.SelectedItem == null)
             {
                 lblFormNote.Content = "line 2 require";
+                return false;
+            }
+            lblFormNote.Content = "";
+            return true;
+        }
+
+        private void btnAddZipCode_Click(object sender, RoutedEventArgs e)
+        {
+            if (!validateZipcodeForm())
+            {
+                return;
+            }
+            Zipcode zipcode = new Zipcode();
+            zipcode.zipcode = txtNewZipcode.Text;
+            zipcode.city = txtCity.Text;
+            zipcode.state = txtState.Text;
+            int result = 0;
+            result = customerManager.addZipCode(zipcode);
+            if (result == 0)
+            {
+                lblFormNote.Content = "zipcode did not added!";
+                return;
+            }
+            lblFormNote.Content = "zipcode added";
+            fillCombos();
+        }
+
+        private bool validateZipcodeForm()
+        {
+            if (txtNewZipcode.Text.Length == 0)
+            {
+                lblFormNote.Content = "zipcode require";
+                return false;
+            }
+            if (txtCity.Text.Length == 0)
+            {
+                lblFormNote.Content = "City require";
+                return false;
+            }
+            if (txtState.Text.Length == 0)
+            {
+                lblFormNote.Content = "State require";
                 return false;
             }
             lblFormNote.Content = "";

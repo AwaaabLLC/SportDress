@@ -10,6 +10,7 @@ namespace ILogicLayer
     public interface ICustomersManager
     {
         public int add(Customer customer);
+        public int addZipCode(Zipcode zipcode);
         public List<Customer> getAllCustomers();
         public List<Zipcode> getZipcodes();
     }

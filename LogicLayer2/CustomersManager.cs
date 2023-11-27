@@ -24,6 +24,13 @@ namespace LogicLayer
             return result;
         }
 
+        public int addZipCode(Zipcode zipcode)
+        {
+            int result = 0;
+            result = _customerAccessor.insertZipcode(zipcode);
+            return result;
+        }
+
         public List<Customer> getAllCustomers()
         {
             List<Customer> list = new List<Customer>();
