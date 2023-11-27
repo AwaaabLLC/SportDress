@@ -323,5 +323,11 @@ namespace PresentationLayer
             dataGridProducts.ItemsSource= productTypes;
             dataType = "productTypes";
         }
+
+        private void btnAddNew_Click(object sender, RoutedEventArgs e)
+        {
+            CustomerForms.FrmCustomer frmCustomer = new CustomerForms.FrmCustomer();
+            frmCustomer.ShowDialog();
+        }
     }
 }

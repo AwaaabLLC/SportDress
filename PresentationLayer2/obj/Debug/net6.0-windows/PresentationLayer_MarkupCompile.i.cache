@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 D:\Awaab\Kirkwood\Tutor\Dotnet2\Gadora\github\SportDress\PresentationLayer2\App.xaml
-61435637418
+7-2022323958
 
-112099930632
+121403202422
 2001120705230
-Admin\EmployeeDataForm.xaml;MainWindow.xaml;Manager\FrmProductImage.xaml;Manager\FrmProducts.xaml;Manager\FrmProductSize.xaml;Manager\FrmProductTypes.xaml;
+Admin\EmployeeDataForm.xaml;CustomerForms\FrmCustomer.xaml;MainWindow.xaml;Manager\FrmProductImage.xaml;Manager\FrmProducts.xaml;Manager\FrmProductSize.xaml;Manager\FrmProductTypes.xaml;
 
 True
 
