@@ -45,11 +45,32 @@ namespace LogicLayer
             return list;
         }
 
+        public CustomerCreditCard getCustomerCreditCard(int customerID)
+        {
+            CustomerCreditCard creditCard = new CustomerCreditCard();
+            creditCard = _customerAccessor.selecteCustomerCreditCard(customerID);
+            return creditCard;
+        }
+
         public List<Zipcode> getZipcodes()
         {
             List<Zipcode> codes = new List<Zipcode>();
             codes = _customerAccessor.SelectZipcodes();
             return codes;
+        }
+
+        public int update(Customer customer)
+        {
+            int result = 0;
+            result = _customerAccessor.update(customer);
+            return result;
+        }
+
+        public int updateCustomerCreditCard(CustomerCreditCard creditCard)
+        {
+            int result = 0;
+            result = _customerAccessor.updateCustomerCreditCard(creditCard);
+            return result;
         }
     }
 }

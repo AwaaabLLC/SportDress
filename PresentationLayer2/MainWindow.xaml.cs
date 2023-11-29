@@ -101,11 +101,11 @@ namespace PresentationLayer
                 gridAdminMenu.Visibility = Visibility.Hidden;
                 gridManagerMenu.Visibility = Visibility.Hidden;
                 gridEmployeeMenu.Visibility = Visibility.Visible;
-                fillDataGrid();
+                fillCustomerDataGrid();
             }
         }
 
-        private void fillDataGrid()
+        private void fillCustomerDataGrid()
         {
             List<Customer> cus = new List<Customer>();
             cus = customersManager.getAllCustomers();
@@ -328,7 +328,16 @@ namespace PresentationLayer
         {
             CustomerForms.FrmCustomer frmCustomer = new CustomerForms.FrmCustomer();
             frmCustomer.ShowDialog();
-            fillDataGrid();
+            fillCustomerDataGrid();
+        }
+
+        private void dgCustomers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Customer customer = new Customer();
+            customer = (Customer)dgCustomers.SelectedItem;
+            CustomerForms.FrmCustomer frmCustomer = new CustomerForms.FrmCustomer(customer);
+            frmCustomer.ShowDialog();
+            fillCustomerDataGrid();
         }
     }
 }

@@ -536,3 +536,55 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_select_customer_credit_card'
+GO
+CREATE PROCEDURE [dbo].[sp_select_customer_credit_card]
+(
+	@CustomerID [int]
+)
+AS
+	BEGIN
+		SELECT [CustomerID], [CreditCardNumber],[zipcode],[cvv],[dateOfExpiration],[nameOnTheCard]
+		 FROM [dbo].[CustomersCreditCards]
+		 WHERE [CustomerID] = @CustomerID
+	END
+GO
+print '' print '*** creating sp_update_customer'
+GO
+CREATE PROCEDURE [dbo].[sp_update_customer]
+(
+	@CustomerID int,@GivenName [nvarchar](50), @FamilyName [nvarchar](50),@PhoneNumber [nvarchar](11),@Email [nvarchar](250),@line1 [nvarchar](250),@line2 [nvarchar](250),@zipcode [nvarchar](10)
+)
+AS
+	BEGIN
+		UPDATE [dbo].[Customers]
+		SET [GivenName]=@GivenName, 
+			[FamilyName]=@FamilyName,
+			[PhoneNumber]= @PhoneNumber,
+			[Email]= @Email,
+			[line1]= @line1,
+			[line2]= @line2,
+			[zipcode]= @zipcode
+		WHERE [CustomerID] =@CustomerID 
+	Return @@ROWCOUNT
+	END
+GO
+print '' print '*** creating sp_update_customer_credit_card'
+GO
+CREATE PROCEDURE [dbo].[sp_update_customer_credit_card]
+(
+	@CustomerID [int], @CreditCardNumber [nvarchar](50),@zipcode [nvarchar](10),
+	@cvv [nvarchar](11),@dateOfExpiration [nvarchar](250),@nameOnTheCard [nvarchar](250)
+)
+AS
+	BEGIN
+		UPDATE [dbo].[CustomersCreditCards]
+		SET  [CreditCardNumber]= @CreditCardNumber,
+			[zipcode]= @zipcode,
+			[cvv]= @cvv,
+			[dateOfExpiration]= @dateOfExpiration,
+			[nameOnTheCard]= @nameOnTheCard
+		WHERE [CustomerID] = @CustomerID
+	Return @@ROWCOUNT
+	END
+GO

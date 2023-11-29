@@ -38,6 +38,53 @@ namespace PresentationLayer.CustomerForms
             fillCombos();
         }
 
+        private void fillFormsDataByCustomerInfo()
+        {
+            txtGivenName.Text = customer.GivenName;
+            txtFamilyName.Text = customer.FamilyName;
+            txtPhoneNumber.Text = customer.PhoneNumber;
+            txtEmail.Text = customer.Email;
+            txtLine1.Text = customer.line1;
+            txtLine2.Text = customer.line2;
+            comboZipCode.SelectedItem = customer.zipcode;
+            Zipcode zipcode = new Zipcode();
+            foreach (Zipcode code in zipcodeList)
+            {
+                if (code.zipcode == customer.zipcode)
+                {
+                    zipcode = code; break;
+                }
+            }
+            txtNewZipcode.Text = customer.zipcode;
+            txtState.Text = zipcode.state;
+            txtCity.Text = zipcode.city;
+            comboCustomers.SelectedItem = customer.FamilyName;
+            comboZipCode.SelectedItem =customer.zipcode;
+            creditCard = customerManager.getCustomerCreditCard(customer.CustomerID);
+            txtCCNumber.Text = creditCard.CreditCardNumber;
+            txtCVV.Text = creditCard.cvv;
+            txtDateOfBirth.Text = creditCard.dateOfExpiration;
+            txtNameOnCard.Text = creditCard.nameOnTheCard;
+            txtNewZipcode.IsReadOnly = true;
+            txtState.IsReadOnly = true;
+            txtCity.IsReadOnly = true;
+            btnAddZipCode.IsEnabled = false;
+            btnSubmit.Content = "Update Customer";
+            btnAddCard.Content = "Update Card";
+        }
+
+        public FrmCustomer(Customer customer)
+        {
+            InitializeComponent();
+            this.customer = customer;
+            customerList = new List<Customer>();
+            customerManager = new CustomersManager();
+            creditCard = new CustomerCreditCard();
+            zipcodeList = new List<Zipcode>();
+            fillCombos();
+            fillFormsDataByCustomerInfo();
+        }
+
         private void fillCombos()
         {
             zipcodeList = customerManager.getZipcodes();
@@ -61,6 +108,13 @@ namespace PresentationLayer.CustomerForms
             comboCustomers.SelectedIndex = 0;
             comboZipcodeCard.ItemsSource = zipcodes;
             comboZipcodeCard.SelectedIndex = 0;
+            txtNewZipcode.IsReadOnly = false;
+            txtState.IsReadOnly = false;
+            txtCity.IsReadOnly = false;
+            btnAddZipCode.IsEnabled = true;
+            btnSubmit.Content = "Add Customer";
+            btnAddCard.Content = "Add Card";
+
         }
 
         private void btnCustomerSubmit_Click(object sender, RoutedEventArgs e)
@@ -77,7 +131,15 @@ namespace PresentationLayer.CustomerForms
             customer.line1 = txtLine1.Text;
             customer.line2 = txtLine2.Text;
             customer.zipcode = comboZipCode.SelectedItem.ToString();
-            result = customerManager.add(customer);
+            if (btnSubmit.Content.ToString() == "Add Customer")
+            {
+                result = customerManager.add(customer);
+            }
+            else
+            {
+                result = customerManager.update(customer);
+            }
+            
             if (result == 0)
             {
                 lblFormNote.Content = "Customer did not added correctly";
@@ -189,7 +251,15 @@ namespace PresentationLayer.CustomerForms
             creditCard.dateOfExpiration = txtDateOfBirth.Text;
             creditCard.nameOnTheCard = txtNameOnCard.Text;
             int result = 0;
-            result = customerManager.addCustomerCreditCard(creditCard);
+            if (btnAddCard.Content.ToString() == "Add Card")
+            {
+                result = customerManager.addCustomerCreditCard(creditCard);
+            }
+            else
+            {
+                result = customerManager.updateCustomerCreditCard(creditCard);
+            }
+            
             if (result == 0)
             {
                 lblFormNote.Content = "Credit Card did not added";

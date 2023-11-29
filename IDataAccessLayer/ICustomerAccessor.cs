@@ -13,6 +13,9 @@ namespace IDataAccessLayer
         public int insertCustomerCreditCard(CustomerCreditCard creditCard);
         public int insertZipcode(Zipcode zipcode);
         public List<Customer> SelectAllCustomers();
+        public CustomerCreditCard selecteCustomerCreditCard(int customerID);
         public List<Zipcode> SelectZipcodes();
+        public int update(Customer customer);
+        public int updateCustomerCreditCard(CustomerCreditCard creditCard);
     }
 }

@@ -7,6 +7,7 @@ using IDataAccessLayer;
 using DataObjects;
 using System.Data.SqlClient;
 using System.Data;
+using System.Reflection.Emit;
 
 namespace DataAccessLayer
 {
@@ -122,6 +123,38 @@ namespace DataAccessLayer
             return customers;
         }
 
+        public CustomerCreditCard selecteCustomerCreditCard(int customerID)
+        {
+            CustomerCreditCard customerCreditCard = new CustomerCreditCard();
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_select_customer_credit_card", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@customerID", customerID);
+            try
+            {
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        customerCreditCard.CustomerID = reader.GetInt32(0);
+                        customerCreditCard.CreditCardNumber = reader.GetString(1);
+                        customerCreditCard.zipcode = reader.GetString(2);
+                        customerCreditCard.cvv = reader.GetString(3);
+                        customerCreditCard.dateOfExpiration = reader.GetString(4);
+                        customerCreditCard.nameOnTheCard = reader.GetString(5);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return customerCreditCard;
+        }
+
         public List<Zipcode> SelectZipcodes()
         {
             List<Zipcode> zipcodes = new List<Zipcode>();
@@ -150,6 +183,58 @@ namespace DataAccessLayer
             }
             finally { conn.Close(); }
             return zipcodes;
+        }
+
+        public int update(Customer customer)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_update_customer", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CustomerID", customer.CustomerID);
+            cmd.Parameters.AddWithValue("@GivenName", customer.GivenName);
+            cmd.Parameters.AddWithValue("@FamilyName", customer.FamilyName);
+            cmd.Parameters.AddWithValue("@PhoneNumber", customer.PhoneNumber);
+            cmd.Parameters.AddWithValue("@Email", customer.Email);
+            cmd.Parameters.AddWithValue("@line1", customer.line1);
+            cmd.Parameters.AddWithValue("@line2", customer.line2);
+            cmd.Parameters.AddWithValue("@zipcode", customer.zipcode);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
+        public int updateCustomerCreditCard(CustomerCreditCard creditCard)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_update_customer_credit_card", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CustomerID", creditCard.CustomerID);
+            cmd.Parameters.AddWithValue("@CreditCardNumber", creditCard.CreditCardNumber);
+            cmd.Parameters.AddWithValue("@zipcode", creditCard.zipcode);
+            cmd.Parameters.AddWithValue("@cvv", creditCard.cvv);
+            cmd.Parameters.AddWithValue("@dateOfExpiration", creditCard.dateOfExpiration);
+            cmd.Parameters.AddWithValue("@nameOnTheCard", creditCard.nameOnTheCard);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
         }
     }
 }
