@@ -10,6 +10,7 @@ namespace IDataAccessLayer
     public interface ICustomerAccessor
     {
         public int insert(Customer customer);
+        public int insertCustomerCreditCard(CustomerCreditCard creditCard);
         public int insertZipcode(Zipcode zipcode);
         public List<Customer> SelectAllCustomers();
         public List<Zipcode> SelectZipcodes();

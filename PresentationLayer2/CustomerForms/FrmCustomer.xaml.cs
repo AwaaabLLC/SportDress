@@ -25,11 +25,15 @@ namespace PresentationLayer.CustomerForms
         private Customer customer;
         private ICustomersManager customerManager;
         private List<Zipcode> zipcodeList;
+        private List<Customer> customerList;
+        private CustomerCreditCard creditCard;
         public FrmCustomer()
         {
             InitializeComponent();
             customer = new Customer();
+            customerList = new List<Customer>();
             customerManager = new CustomersManager();
+            creditCard = new CustomerCreditCard();
             zipcodeList = new List<Zipcode>();
             fillCombos();
         }
@@ -47,6 +51,16 @@ namespace PresentationLayer.CustomerForms
             }
             comboZipCode.ItemsSource = zipcodes; 
             comboZipCode.SelectedIndex = 0;
+            customerList = customerManager.getAllCustomers();
+            List<string> customerNames = new List<string>();
+            foreach (Customer custom in customerList) {
+                if (custom.FamilyName != null)
+                customerNames.Add(custom.FamilyName);
+            }
+            comboCustomers.ItemsSource = customerNames;
+            comboCustomers.SelectedIndex = 0;
+            comboZipcodeCard.ItemsSource = zipcodes;
+            comboZipcodeCard.SelectedIndex = 0;
         }
 
         private void btnCustomerSubmit_Click(object sender, RoutedEventArgs e)
@@ -161,7 +175,27 @@ namespace PresentationLayer.CustomerForms
             {
                 return;
             }
-            lblFormNote.Content = "Credit Card data valid";
+            foreach (Customer custom in customerList)
+            {
+                if (custom.FamilyName != null && custom.FamilyName.Equals(comboCustomers.SelectedItem.ToString()))
+                {
+                    creditCard.CustomerID = custom.CustomerID;
+                    break;
+                }
+            }            
+            creditCard.CreditCardNumber = txtCCNumber.Text;
+            creditCard.zipcode = comboZipCode.SelectedItem.ToString();
+            creditCard.cvv = txtCVV.Text;
+            creditCard.dateOfExpiration = txtDateOfBirth.Text;
+            creditCard.nameOnTheCard = txtNameOnCard.Text;
+            int result = 0;
+            result = customerManager.addCustomerCreditCard(creditCard);
+            if (result == 0)
+            {
+                lblFormNote.Content = "Credit Card did not added";
+                return;
+            }
+            lblFormNote.Content = "Credit Card added";
         }
 
         private bool validateCardForm()

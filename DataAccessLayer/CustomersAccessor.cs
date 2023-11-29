@@ -40,6 +40,31 @@ namespace DataAccessLayer
             return result;
         }
 
+        public int insertCustomerCreditCard(CustomerCreditCard creditCard)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_customer_credit_card", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CustomerID", creditCard.CustomerID);
+            cmd.Parameters.AddWithValue("@CreditCardNumber", creditCard.CreditCardNumber);
+            cmd.Parameters.AddWithValue("@zipcode", creditCard.zipcode);
+            cmd.Parameters.AddWithValue("@cvv", creditCard.cvv);
+            cmd.Parameters.AddWithValue("@dateOfExpiration", creditCard.dateOfExpiration);
+            cmd.Parameters.AddWithValue("@nameOnTheCard", creditCard.nameOnTheCard);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public int insertZipcode(Zipcode zipcode)
         {
             int result = 0;

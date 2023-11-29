@@ -520,3 +520,19 @@ AS
 	Return @@ROWCOUNT
 	END
 GO
+print '' print '*** creating sp_insert_customer_credit_card'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_customer_credit_card]
+(
+	@CustomerID [int], @CreditCardNumber [nvarchar](50),@zipcode [nvarchar](10),
+	@cvv [nvarchar](11),@dateOfExpiration [nvarchar](250),@nameOnTheCard [nvarchar](250)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[CustomersCreditCards]
+	([CustomerID], [CreditCardNumber],[zipcode],[cvv],[dateOfExpiration],[nameOnTheCard])
+	VALUES
+	(@CustomerID, @CreditCardNumber,@zipcode,@cvv,@dateOfExpiration,@nameOnTheCard)
+	Return @@ROWCOUNT
+	END
+GO

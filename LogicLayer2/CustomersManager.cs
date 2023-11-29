@@ -24,6 +24,13 @@ namespace LogicLayer
             return result;
         }
 
+        public int addCustomerCreditCard(CustomerCreditCard creditCard)
+        {
+            int result = 0;
+            result = _customerAccessor.insertCustomerCreditCard(creditCard); 
+            return result;  
+        }
+
         public int addZipCode(Zipcode zipcode)
         {
             int result = 0;
