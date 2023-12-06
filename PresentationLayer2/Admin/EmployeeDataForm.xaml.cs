@@ -92,7 +92,7 @@ namespace PresentationLayer.Admin
                 bool result = employeesManager.setEmployee(employee);
                 if (result)
                 {
-                    lblFormMessage.Content = "تم إدخال بيانات الموظف بنجاح يا قدورة :)هههه";
+                    lblFormMessage.Content = "user entered correctly";
                     txtGivenName.Text = "";
                     txtFamilyName.Text = "";
                     txtEmail.Text = "";
