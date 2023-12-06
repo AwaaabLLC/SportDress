@@ -11,9 +11,11 @@ namespace ILogicLayer
     {
         public int add(Customer customer);
         public int addCustomerCreditCard(CustomerCreditCard creditCard);
+        public int addTransaction(CustomerTransaction customerTransaction);
         public int addZipCode(Zipcode zipcode);
         public List<Customer> getAllCustomers();
         public CustomerCreditCard getCustomerCreditCard(int customerID);
+        public List<CustomerTransaction> getCustomerTransactions(int customerID);
         public List<Zipcode> getZipcodes();
         public int update(Customer customer);
         public int updateCustomerCreditCard(CustomerCreditCard creditCard);

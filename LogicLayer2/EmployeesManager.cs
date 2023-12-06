@@ -15,6 +15,11 @@ namespace LogicLayer
             employeesAccessor = new EmployeesAccessor();
         }
 
+        public EmployeesManager(IEmployeesAccessor employeesAccessor)
+        {
+            this.employeesAccessor = employeesAccessor;
+        }
+
         public int deleteEmployee(Employee employee)
         {
             int result = 0;

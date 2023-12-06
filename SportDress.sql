@@ -133,7 +133,6 @@ CREATE TABLE [dbo].[CustomersCreditCards]
 	[cvv]	[nvarchar](11)	NOT NULL,
 	[dateOfExpiration]	[nvarchar](250)	NOT NULL,
 	[nameOnTheCard]		[nvarchar](250)	NOT NULL,
-	CONSTRAINT [pk_CustomerCreditCard] PRIMARY KEY ([CustomerID],[CreditCardNumber]),
 	CONSTRAINT [fk_CustomerID_CustomersCreditCards] FOREIGN KEY ([CustomerID]) REFERENCES [Customers]([CustomerID]),
 	CONSTRAINT [fk_zipcode_CustomersCreditCards] FOREIGN KEY ([zipcode]) REFERENCES [zipcodes]([zipcode])
 )
@@ -229,6 +228,22 @@ INSERT INTO [dbo].[productsImages]
 	('100000', 'http://images.image1')
 
 GO
+
+CREATE TABLE [dbo].[transactions]
+(
+	[transactionID]	[int]	IDENTITY(100000,1)	NOT NULL,
+	[customerID]	[int]	NOT NULL,
+	[productID]	[int]	NOT NULL,
+	[price]	[nvarchar](255)	NOT NULL,
+	[dateOfBuy]	[nvarchar](255)	NOT NULL,
+	CONSTRAINT [pk_transactionID] PRIMARY KEY ([transactionID]),
+	CONSTRAINT [fk_transactions_customerID] FOREIGN KEY ([CustomerID]) REFERENCES [Customers]([CustomerID]),
+	CONSTRAINT [fk_transactions_productID] FOREIGN KEY([productID]) REFERENCES [products]([productID])
+)
+print '' print '*** transactions table  created'
+Go
+
+
 print '' print '*** creating sp_verify_user'
 GO
 CREATE PROCEDURE [dbo].[sp_verify_user]
@@ -258,7 +273,6 @@ AS
 		INNER JOIN [dbo].[Employees] ON [dbo].[EmployeesRoles].[EmployeeID] = [dbo].[Employees].[EmployeeID]
 		WHERE [dbo].[Employees].[EmployeeID] = @employee_id;		
 	END
-GO
 GO
 print '' print '*** creating sp_insert_employee'
 GO
@@ -448,6 +462,7 @@ GO
 CREATE PROCEDURE [dbo].[sp_update_product]
 (
 	@ProductId [int], @ProductName [nvarchar](50), @Type [nvarchar](50), @Size [nvarchar](50), @Price [nvarchar](4)
+
 )
 AS
 	BEGIN
@@ -586,5 +601,31 @@ AS
 			[nameOnTheCard]= @nameOnTheCard
 		WHERE [CustomerID] = @CustomerID
 	Return @@ROWCOUNT
+	END
+GO
+print '' print '*** creating sp_insert_transaction'
+GO
+CREATE PROCEDURE [dbo].[sp_insert_transaction]
+(
+	@CustomerID [int],@productId [int],@price [nvarchar](50),@dateOfBuy [nvarchar](50)
+)
+AS
+	BEGIN
+		INSERT INTO [dbo].[transactions]
+		([customerID],[productID],[price],[dateOfBuy])
+		VALUES (@CustomerID , @productId, @price, @dateOfBuy)
+	END
+GO
+print '' print '*** creating sp_select_customer_transactions'
+GO
+CREATE PROCEDURE [dbo].[sp_select_customer_transactions]
+(
+	@customerID [int]
+)
+AS
+	BEGIN
+		SELECT [customerID],[productID],[price],[dateOfBuy]
+		FROM	[dbo].[transactions]
+		WHERE [customerID] = @customerID
 	END
 GO

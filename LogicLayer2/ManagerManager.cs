@@ -12,7 +12,17 @@ namespace LogicLayer
 {
     public class ManagerManager : IManagerManager
     {
-        private IManagerAccessor managerAccessor = new ManagerAccessor();
+        private IManagerAccessor managerAccessor;
+
+        public ManagerManager()
+        {
+            managerAccessor = new ManagerAccessor();
+        }
+
+        public ManagerManager(IManagerAccessor accessor)
+        {
+            managerAccessor = accessor;
+        }
 
         public int addProduct(Products product)
         {
@@ -45,7 +55,7 @@ namespace LogicLayer
         public int editProduct(Products products)
         {
             int result = 0;
-            result = managerAccessor.updateProductType(products);
+            result = managerAccessor.updateProduct(products);
             return result;
         }
 

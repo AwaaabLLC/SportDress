@@ -13,8 +13,14 @@ namespace LogicLayer
     public class CustomersManager : ICustomersManager
     {
         private ICustomerAccessor _customerAccessor;
+
         public CustomersManager() { 
             _customerAccessor = new CustomersAccessor();
+        }
+
+        public CustomersManager(ICustomerAccessor customerAccessor)
+        {
+            _customerAccessor = customerAccessor;
         }
 
         public int add(Customer customer)
@@ -29,6 +35,13 @@ namespace LogicLayer
             int result = 0;
             result = _customerAccessor.insertCustomerCreditCard(creditCard); 
             return result;  
+        }
+
+        public int addTransaction(CustomerTransaction customerTransaction)
+        {
+            int result = 0;
+            result = _customerAccessor.insertTransaction(customerTransaction);
+            return result;
         }
 
         public int addZipCode(Zipcode zipcode)
@@ -48,8 +61,15 @@ namespace LogicLayer
         public CustomerCreditCard getCustomerCreditCard(int customerID)
         {
             CustomerCreditCard creditCard = new CustomerCreditCard();
-            creditCard = _customerAccessor.selecteCustomerCreditCard(customerID);
+            creditCard = _customerAccessor.selectCustomerCreditCard(customerID);
             return creditCard;
+        }
+
+        public List<CustomerTransaction> getCustomerTransactions(int customerID)
+        {
+            List<CustomerTransaction> customerTransactions = new List<CustomerTransaction>();
+            customerTransactions = _customerAccessor.selectCustomerTransactions(customerID);
+            return customerTransactions;
         }
 
         public List<Zipcode> getZipcodes()

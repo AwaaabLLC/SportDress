@@ -66,6 +66,29 @@ namespace DataAccessLayer
             return result;
         }
 
+        public int insertTransaction(CustomerTransaction customerTransaction)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_insert_transaction", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@customerId", customerTransaction.customerId);
+            cmd.Parameters.AddWithValue("@productId", customerTransaction.productId);
+            cmd.Parameters.AddWithValue("@price", customerTransaction.price);
+            cmd.Parameters.AddWithValue("@dateOfBuy", customerTransaction.dateOfBuy);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
+
         public int insertZipcode(Zipcode zipcode)
         {
             int result = 0;
@@ -123,7 +146,39 @@ namespace DataAccessLayer
             return customers;
         }
 
-        public CustomerCreditCard selecteCustomerCreditCard(int customerID)
+        public List<CustomerTransaction> selectCustomerTransactions(int customerID)
+        {
+            List<CustomerTransaction> customerTransactions = new List<CustomerTransaction>();
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_select_customer_transactions", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@customerID", customerID);
+            try
+            {
+                conn.Open();
+                var reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        CustomerTransaction customer = new CustomerTransaction();
+                        customer.customerId = reader.GetInt32(0);
+                        customer.productId = reader.GetInt32(1);
+                        customer.price = reader.GetString(2);
+                        customer.dateOfBuy = reader.GetString(3);
+                        customerTransactions.Add(customer);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return customerTransactions;
+        }
+
+        public CustomerCreditCard selectCustomerCreditCard(int customerID)
         {
             CustomerCreditCard customerCreditCard = new CustomerCreditCard();
             SqlConnection conn = DBConnection.getConnection();

@@ -8,11 +8,11 @@
         Title="FrmCustomer" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"/>
-            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="250"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <Label x:Name="lblTitle" Content="CustomerForm"/>
@@ -315,33 +315,45 @@
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
-                <ColumnDefinition Width="80"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="110"/>
+                <ColumnDefinition Width="110"/>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0"></Grid>
-            <Grid Grid.Column="1"></Grid>
-            <Grid Grid.Column="2"></Grid>
-            <Grid Grid.Column="3"></Grid>
-            <Grid Grid.Column="4">
-                
+            <Grid Grid.Column="0">
+                <ComboBox x:Name="comboTransactionCustomer"/>
             </Grid>
-            <Grid Grid.Column="5"></Grid>
-            <Grid Grid.Column="6"></Grid>
-            <Grid Grid.Column="7"></Grid>
-            <Grid Grid.Column="8"></Grid>
-            <Grid Grid.Column="9"></Grid>
+            <Grid Grid.Column="1">
+                <ComboBox x:Name="comboTransactionProduct"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Label x:Name="lblTransactionPrice" Content="price" HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Column="3">
+                <TextBox x:Name="txtTransactionPrice" />
+            </Grid>
+            <Grid Grid.Column="4">
+                <Label x:Name="lblTransactionDate" Content="Date"/>
+            </Grid>
+            <Grid Grid.Column="5">
+                <TextBox x:Name="txtTransactionDate"/>
+            </Grid>
+            <Grid Grid.Column="6">
+                <Button x:Name="btnTransactionSubmit" Content="Add transaction" Click="btnTransactionSubmit_Click"/>
+            </Grid>
         </Grid>
         <Grid Grid.Row="3">
-            <Label x:Name="lblFormNote" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="541*"/>
+                <ColumnDefinition Width="259*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblFormNote" Grid.ColumnSpan="2" />
         </Grid>
-        <Grid Grid.Row="4"></Grid>
+        <Grid Grid.Row="4">
+            <DataGrid x:Name="dgTransaction"/>
+        </Grid>
     </Grid>
 </Window>

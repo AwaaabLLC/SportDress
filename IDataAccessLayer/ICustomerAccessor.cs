@@ -11,9 +11,11 @@ namespace IDataAccessLayer
     {
         public int insert(Customer customer);
         public int insertCustomerCreditCard(CustomerCreditCard creditCard);
+        public int insertTransaction(CustomerTransaction customerTransaction);
         public int insertZipcode(Zipcode zipcode);
         public List<Customer> SelectAllCustomers();
-        public CustomerCreditCard selecteCustomerCreditCard(int customerID);
+        public List<CustomerTransaction> selectCustomerTransactions(int customerID);
+        public CustomerCreditCard selectCustomerCreditCard(int customerID);
         public List<Zipcode> SelectZipcodes();
         public int update(Customer customer);
         public int updateCustomerCreditCard(CustomerCreditCard creditCard);

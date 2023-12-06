@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ILogicLayer", "ILogicLayer\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDataAccessLayer", "IDataAccessLayer\IDataAccessLayer.csproj", "{DA35DB02-D18F-4649-A1A1-BA046A9DF03E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataObjects", "DataObjects\DataObjects.csproj", "{6B6DCD1A-C198-496A-A3E1-5774DADE7F44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataObjects", "DataObjects\DataObjects.csproj", "{6B6DCD1A-C198-496A-A3E1-5774DADE7F44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeDataAccessLayer", "FakeDataAccessLayer\FakeDataAccessLayer.csproj", "{26E66BE3-D450-4F8A-B434-41BA611B7EE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestLogicLayer", "TestLogicLayer\TestLogicLayer.csproj", "{1546C930-D284-45B1-8BBB-B08F8F7BD628}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{6B6DCD1A-C198-496A-A3E1-5774DADE7F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B6DCD1A-C198-496A-A3E1-5774DADE7F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B6DCD1A-C198-496A-A3E1-5774DADE7F44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26E66BE3-D450-4F8A-B434-41BA611B7EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26E66BE3-D450-4F8A-B434-41BA611B7EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26E66BE3-D450-4F8A-B434-41BA611B7EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26E66BE3-D450-4F8A-B434-41BA611B7EE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1546C930-D284-45B1-8BBB-B08F8F7BD628}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1546C930-D284-45B1-8BBB-B08F8F7BD628}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1546C930-D284-45B1-8BBB-B08F8F7BD628}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1546C930-D284-45B1-8BBB-B08F8F7BD628}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,17 +24,27 @@ namespace PresentationLayer.CustomerForms
     {
         private Customer customer;
         private ICustomersManager customerManager;
+        private IManagerManager productManager;
         private List<Zipcode> zipcodeList;
         private List<Customer> customerList;
         private CustomerCreditCard creditCard;
+        private Products product;
+        private List<Products> products;
+        private CustomerTransaction customerTransaction;
+        private List<CustomerTransaction> transactionList;
         public FrmCustomer()
         {
             InitializeComponent();
             customer = new Customer();
             customerList = new List<Customer>();
             customerManager = new CustomersManager();
+            productManager = new ManagerManager();
             creditCard = new CustomerCreditCard();
             zipcodeList = new List<Zipcode>();
+            product = new Products();
+            products = new List<Products>();
+            customerTransaction = new CustomerTransaction();
+            transactionList = new List<CustomerTransaction>();
             fillCombos();
         }
 
@@ -70,17 +80,30 @@ namespace PresentationLayer.CustomerForms
             txtCity.IsReadOnly = true;
             btnAddZipCode.IsEnabled = false;
             btnSubmit.Content = "Update Customer";
-            btnAddCard.Content = "Update Card";
+            btnAddCard.Content = "Add Card";
+            comboTransactionCustomer.SelectedItem = customer.FamilyName;
+            comboTransactionCustomer.IsReadOnly = true;
+            comboTransactionProduct.IsReadOnly = false;
+            txtTransactionDate.IsReadOnly = false;
+            txtTransactionPrice.IsReadOnly = false;
+            btnTransactionSubmit.IsEnabled = true;
+            transactionList = new List<CustomerTransaction>();
+            transactionList = customerManager.getCustomerTransactions(customer.CustomerID);
+            dgTransaction.ItemsSource = transactionList;
         }
 
-        public FrmCustomer(Customer customer)
+        public FrmCustomer(Customer custom)
         {
             InitializeComponent();
-            this.customer = customer;
+            customer = custom;
             customerList = new List<Customer>();
             customerManager = new CustomersManager();
+            productManager = new ManagerManager();
             creditCard = new CustomerCreditCard();
             zipcodeList = new List<Zipcode>();
+            product = new Products();
+            products = new List<Products>();
+            customerTransaction = new CustomerTransaction();
             fillCombos();
             fillFormsDataByCustomerInfo();
         }
@@ -114,6 +137,26 @@ namespace PresentationLayer.CustomerForms
             btnAddZipCode.IsEnabled = true;
             btnSubmit.Content = "Add Customer";
             btnAddCard.Content = "Add Card";
+            comboTransactionCustomer.ItemsSource = customerNames;
+            comboTransactionCustomer.SelectedIndex = 0;
+            products = productManager.getProducts();
+            List<string> productsNames = new List<string>();
+            foreach (Products pro in products)
+            {
+                if (pro.ProductName != null)
+                {
+                    productsNames.Add(pro.ProductName);
+                }
+
+            }
+            comboTransactionProduct.ItemsSource = productsNames;
+            transactionList = new List<CustomerTransaction>();
+            comboTransactionProduct.SelectedIndex = 0;
+            comboTransactionCustomer.IsReadOnly = false;
+            comboTransactionProduct.IsReadOnly = false;
+            txtTransactionDate.IsReadOnly = false;
+            txtTransactionPrice.IsReadOnly = false;
+            btnTransactionSubmit.IsEnabled = true;
 
         }
 
@@ -298,6 +341,70 @@ namespace PresentationLayer.CustomerForms
             if (txtNameOnCard.Text.Length == 0)
             {
                 lblFormNote.Content = "Name on card require";
+                return false;
+            }
+            lblFormNote.Content = "";
+            return true;
+        }
+
+        private void btnTransactionSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            if (!validateTransactionForm())
+            {
+                return;
+            }
+            int result = 0;
+            foreach (Customer custom in customerList)
+            {
+                if (custom.GivenName != null && custom.FamilyName == comboTransactionCustomer.SelectedItem.ToString())
+                {
+                    customerTransaction.customerId = custom.CustomerID;
+                    break;
+                }
+            }
+            foreach (Products pro in products)
+            {
+                if (pro.ProductName != null && pro.ProductName == comboTransactionProduct.SelectedItem.ToString())
+                {
+                    customerTransaction.productId = pro.ProductId;
+                    break;
+                }
+            }
+            customerTransaction.price = txtTransactionPrice.Text;
+            customerTransaction.dateOfBuy = txtTransactionPrice.Text;
+            result = customerManager.addTransaction(customerTransaction);
+            if (result == 0)
+            {
+                lblFormNote.Content = "Transaction did not added!";
+                return;
+            }
+            lblFormNote.Content = "Transaction Added";
+            transactionList = new List<CustomerTransaction>();
+            transactionList =  customerManager.getCustomerTransactions(customer.CustomerID);
+            dgTransaction.ItemsSource = transactionList;
+
+        }
+
+        private bool validateTransactionForm()
+        {
+            if (comboTransactionCustomer.SelectedItem == null)
+            {
+                lblFormNote.Content = "customer require";
+                return false;
+            }
+            if (comboTransactionProduct.SelectedItem == null)
+            {
+                lblFormNote.Content = "Product require";
+                return false;
+            }
+            if (txtTransactionPrice.Text.Length == 0)
+            {
+                lblFormNote.Content = "Price require";
+                return false;
+            }
+            if (txtTransactionDate.Text.Length == 0)
+            {
+                lblFormNote.Content = "Date require";
                 return false;
             }
             lblFormNote.Content = "";

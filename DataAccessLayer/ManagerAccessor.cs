@@ -306,5 +306,29 @@ namespace DataAccessLayer
             finally { conn.Close(); }
             return result;
         }
+
+        public int updateProduct(Products product)
+        {
+            int result = 0;
+            SqlConnection conn = DBConnection.getConnection();
+            var cmd = new SqlCommand("sp_update_product", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ProductId", product.ProductId);
+            cmd.Parameters.AddWithValue("@ProductName", product.ProductName);
+            cmd.Parameters.AddWithValue("@Type", product.Type);
+            cmd.Parameters.AddWithValue("@Size", product.Size);
+            cmd.Parameters.AddWithValue("@Price", product.Price);
+            try
+            {
+                conn.Open();
+                result = cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally { conn.Close(); }
+            return result;
+        }
     }
 }
